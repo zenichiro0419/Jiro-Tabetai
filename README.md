@@ -4,7 +4,7 @@
   - ジロウ初心者からベテランまでが楽しめるジロウラーメンポータルサイト
   - [サウナイキタイ](https://sauna-ikitai.com/)を完全リスペクトした UGC サービス
 
-# Eplanations
+# Explanations
 
 [Notion](https://www.notion.so/zennotion/Jiro-Ikitai-5a1d33137199440688de3979cb866681)にて詳しい仕様設計。
 
