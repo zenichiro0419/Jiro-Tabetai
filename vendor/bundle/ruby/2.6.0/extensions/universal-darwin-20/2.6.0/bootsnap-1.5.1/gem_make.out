@@ -1,0 +1,18 @@
+current directory: /Users/zen/git/github/Jiro-Tabetai/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20201230-59929-1diegyr.rb extconf.rb
+creating Makefile
+
+current directory: /Users/zen/git/github/Jiro-Tabetai/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/zen/git/github/Jiro-Tabetai/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.Internal.sdk/usr/local/lib'
+ld: warning: ignoring file bootsnap.o, building for macOS-arm64e but attempting to link with file built for unknown-x86_64
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.Internal.sdk/usr/local/lib'
+
+current directory: /Users/zen/git/github/Jiro-Tabetai/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20201230-59929-sfsqvp/bootsnap
