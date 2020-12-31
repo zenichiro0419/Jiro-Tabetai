@@ -1,0 +1,3 @@
+class JiroController < ApplicationController
+
+end
