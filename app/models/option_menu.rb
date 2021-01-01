@@ -1,0 +1,2 @@
+class OptionMenu < ApplicationRecord
+end
