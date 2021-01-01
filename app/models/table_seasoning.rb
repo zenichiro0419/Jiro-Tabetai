@@ -1,0 +1,2 @@
+class TableSeasoning < ApplicationRecord
+end
