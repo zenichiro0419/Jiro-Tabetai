@@ -1,5 +1,5 @@
 # Jiro
-Jiro.create(
+Jiro.create!(
   [
     {
       name: 'zenjiro',
@@ -22,6 +22,28 @@ Jiro.create(
       information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意',
       is_closed: false,
       registered_jirolian_id: 1
+    },
+    {
+      name: 'narijiro',
+      address: '東京都江東区大島1-5-7',
+      phone_number: '080-3352-4446',
+      access: '都営新宿線大島駅から徒歩6分',
+      hp_url: 'https://www.twitter',
+      is_parking_area: true,
+      seat_count: 10,
+      payment_method: 1,
+      how_to_order: 1,
+      call_timing: 1,
+      is_renge: true,
+      is_tissue: false,
+      is_apron: false,
+      is_water_server: true,
+      is_trash_box: true,
+      is_rest_room: false,
+      in_store_pending: 3,
+      information: '総帥が麺上げしてくれているときは味が安定する。',
+      is_closed: false,
+      registered_jirolian_id: 2
     }
   ]
 )
