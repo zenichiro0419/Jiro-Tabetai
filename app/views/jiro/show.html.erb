@@ -1,0 +1,25 @@
+<h1 class="display-4 text-primary">店舗情報</h1>
+  <h2 class="display-4 text-primary">基本情報</h2>
+    <table class="table">
+      <tr><th>店鋪名：</th>
+        <td><%= @jiro.name %></td></tr>
+      <tr><th>住所：</th>
+        <td><%= @jiro.address %></td></tr>
+      <tr><th>アクセス：</th>
+        <td><%= @jiro.access %></td></tr>
+      <tr><th>駐車場：</th>
+        <td><%= exist(@jiro.is_parking_area) %></td></tr>
+      <tr><th>TEL：</th>
+        <td><%= @jiro.phone_number %></td></tr>
+      <tr><th>HP/SNS：</th>
+        <td><%= link_to('コチラ', @jiro.hp_url) %></td></tr>
+      <tr><th>席数：</th>
+        <td><%= @jiro.seat_count %></td></tr>
+      <tr><th>支払方法：</th>
+        <td><%= @jiro.payment_method_i18n %></td></tr>
+      <tr><th>注文方法：</th>
+        <td><%= @jiro.how_to_order_i18n %></td></tr>
+      </tr>
+    </table>
+
+
