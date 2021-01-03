@@ -34,6 +34,8 @@ group :development, :test do
   # Setup RSpec
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails', '~> 4.11'
+  # Setup enum_help
+  gem 'enum_help'
 end
 
 group :development do
