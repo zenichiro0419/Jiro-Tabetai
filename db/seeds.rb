@@ -44,6 +44,20 @@ Jiro.create!(
       information: '総帥が麺上げしてくれているときは味が安定する。',
       is_closed: false,
       registered_jirolian_id: 2
-    }
+    },
+    {
+      name: 'kumajiro',
+      address: '群馬県前橋市文京町3-13-4',
+      phone_number: '080-3352-2226',
+      access: 'JR前橋駅から車で１０分',
+      hp_url: 'https://twitter.com/home',
+      seat_count: 10,
+      payment_method: 1,
+      how_to_order: 2,
+      call_timing: 1,
+      information: '地元の味がする。',
+      is_closed: false,
+      registered_jirolian_id: 3
+    },
   ]
 )
