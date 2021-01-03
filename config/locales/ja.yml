@@ -1,0 +1,11 @@
+ja:
+  enums:
+    jiro:
+      payment_method:
+        default: "未設定"
+        only_cash: "現金のみ"
+        available_bisides_cash: "現金以外対応可能"
+      how_to_order:
+        default: "未設定"
+        meal_voucher_system: "食券制"
+        order_system: "注文制"
