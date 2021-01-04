@@ -28,11 +28,11 @@ Jiro.create!(
       address: '東京都江東区大島1-5-7',
       phone_number: '080-3352-4446',
       access: '都営新宿線大島駅から徒歩6分',
-      hp_url: 'https://www.twitter',
+      hp_url: 'https://twitter.com/home',
       is_parking_area: true,
       seat_count: 10,
       payment_method: 1,
-      how_to_order: 1,
+      how_to_order: 2,
       call_timing: 1,
       is_renge: true,
       is_tissue: false,
@@ -44,6 +44,20 @@ Jiro.create!(
       information: '総帥が麺上げしてくれているときは味が安定する。',
       is_closed: false,
       registered_jirolian_id: 2
-    }
+    },
+    {
+      name: 'kumajiro',
+      address: '群馬県前橋市文京町3-13-4',
+      phone_number: '080-3352-2226',
+      access: 'JR前橋駅から車で１０分',
+      hp_url: 'https://twitter.com/home',
+      seat_count: 10,
+      payment_method: 1,
+      how_to_order: 2,
+      call_timing: 1,
+      information: '地元の味がする。',
+      is_closed: false,
+      registered_jirolian_id: 3
+    },
   ]
 )
