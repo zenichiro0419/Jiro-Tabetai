@@ -11,7 +11,7 @@ module JiroHelper
   # @return [string]
   def show_waiting_seat(seat_count)
     return '未設定' if seat_count.nil?
-    return "○(#{seat_count})" if seat_count > 0
+    return "○(#{seat_count})" if seat_count.positive?
     return '×' if seat_count.zero?
   end
 end

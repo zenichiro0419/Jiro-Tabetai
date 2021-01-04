@@ -58,6 +58,6 @@ Jiro.create!(
       information: '地元の味がする。',
       is_closed: false,
       registered_jirolian_id: 3
-    },
+    }
   ]
 )
