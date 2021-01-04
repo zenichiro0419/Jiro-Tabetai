@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_143334) do
+ActiveRecord::Schema.define(version: 2021_01_04_034951) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_01_143334) do
   end
 
   create_table "jiros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "address"
     t.string "phone_number"
     t.string "access"
