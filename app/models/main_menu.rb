@@ -12,5 +12,5 @@
 #  jiro_id          :integer
 #
 class MainMenu < ApplicationRecord
-  belong_to :jiro
+  belongs_to :jiro
 end
