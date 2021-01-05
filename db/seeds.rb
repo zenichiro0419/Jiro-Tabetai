@@ -19,7 +19,7 @@ Jiro.create!(
       is_trash_box: true,
       is_rest_room: true,
       in_store_pending: 6,
-      information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意',
+      information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。',
       is_closed: false,
       registered_jirolian_id: 1
     },
@@ -41,7 +41,7 @@ Jiro.create!(
       is_trash_box: true,
       is_rest_room: false,
       in_store_pending: 3,
-      information: '総帥が麺上げしてくれているときは味が安定する。',
+      information: '総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。',
       is_closed: false,
       registered_jirolian_id: 2
     },
@@ -111,6 +111,16 @@ OptionMenu.create!(
     },
     {
       name: '豚追加',
+      price: 150,
+      jiro_id: 1
+    },
+    {
+      name: 'ネギ',
+      price: 100,
+      jiro_id: 1
+    },
+    {
+      name: '魚粉',
       price: 100,
       jiro_id: 1
     }
