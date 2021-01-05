@@ -48,7 +48,7 @@
 
   <h2>卓上調味料</h2>
     <p style="text-decoration: underline" ><%= table_seasoning_list(@table_seasonings) %></p>
-  
+      
   <h2>メインメニュー</h2>
     <% if @main_menus.blank? %>
       <%= '未設定' %>
@@ -70,24 +70,6 @@
       <% end %>  
     <% end %>
 
-    <h2>オプションメニュー</h2>
-      <% if @option_menus.blank? %>
-        <%= '未設定' %>
-      <% else %>  
-        <% @option_menus.each do |option_menu| %>
-          <table class='option-menu-table'>
-            <tr>
-              <th><%= option_menu.name %></th>
-              <td><%= "#{option_menu.price}円" %></td>
-            </tr>
-          </table>
-        <% end %>
-      <% end %>
 
-    <h2>店舗補足情報</h2>
-      <%= @jiro.information%>
-
-    <h2>営業時間</h2>
-        
-
+    
 
