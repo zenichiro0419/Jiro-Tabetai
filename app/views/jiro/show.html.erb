@@ -70,6 +70,18 @@
       <% end %>  
     <% end %>
 
-
+    <h2>オプションメニュー</h2>
+      <% if @option_menus.blank? %>
+        <%= '未設定' %>
+      <% else %>  
+        <% @option_menus.each do |option_menu| %>
+          <table class='option-menu-table'>
+            <tr>
+              <th><%= option_menu.name %></th>
+              <td><%= "#{option_menu.price}円" %></td>
+            </tr>
+          </table>
+        <% end %>
+      <% end %>
     
 
