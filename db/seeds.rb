@@ -164,3 +164,100 @@ Topping.create!(
     }
   ]
 )
+
+# BusinessHour
+BusinessHour.create!(
+  [
+    {
+      jiro_id: 1,
+      wday: 0,
+      category: 3,
+      start_at: nil,
+      end_at: nil
+    },
+    {
+      jiro_id: 1,
+      wday: 1,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 1,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 2,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 2,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 3,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 3,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 4,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 4,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 5,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 5,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 6,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 6,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    }
+  ]
+)
