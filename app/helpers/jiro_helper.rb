@@ -14,4 +14,16 @@ module JiroHelper
     return "○(#{seat_count})" if seat_count.positive?
     return '×' if seat_count.zero?
   end
+
+  # @params [Array] table_seasonings
+  # @return [string] list
+  def table_seasoning_list(table_seasonings)
+    list = ''
+    if table_seasonings.blank?
+      list = '未設定'
+    else
+      table_seasonings.each { |seasoning| list += "#{seasoning} / " }
+      list
+    end
+  end
 end

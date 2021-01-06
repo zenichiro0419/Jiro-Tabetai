@@ -19,7 +19,7 @@ Jiro.create!(
       is_trash_box: true,
       is_rest_room: true,
       in_store_pending: 6,
-      information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意',
+      information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。',
       is_closed: false,
       registered_jirolian_id: 1
     },
@@ -41,7 +41,7 @@ Jiro.create!(
       is_trash_box: true,
       is_rest_room: false,
       in_store_pending: 3,
-      information: '総帥が麺上げしてくれているときは味が安定する。',
+      information: '総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。',
       is_closed: false,
       registered_jirolian_id: 2
     },
@@ -61,3 +61,69 @@ Jiro.create!(
     }
   ]
 )
+# TableSeasoning
+TableSeasoning.create!(
+  [
+    {
+      name: 'カエシ醤油',
+      jiro_id: 1
+    },
+    {
+      name: '白コショウ',
+      jiro_id: 1
+    },
+    {
+      name: '黒コショウ',
+      jiro_id: 1
+    },
+    {
+      name: '一味唐辛子',
+      jiro_id: 1
+    }
+  ]
+)
+# MainMenu
+MainMenu.create!(
+  [
+    {
+      name: 'ラーメン(小)',
+      noodles_quantity: 250,
+      note: 'マシマシ禁止',
+      price: 650,
+      jiro_id: 1
+    },
+    {
+      name: 'ラーメン(大)',
+      noodles_quantity: 400,
+      note: 'マシマシ禁止',
+      price: 750,
+      jiro_id: 1
+    }
+  ]
+)
+# OptionMenu
+OptionMenu.create!(
+  [
+    {
+      name: '生卵',
+      price: 50,
+      jiro_id: 1
+    },
+    {
+      name: '豚追加',
+      price: 150,
+      jiro_id: 1
+    },
+    {
+      name: 'ネギ',
+      price: 100,
+      jiro_id: 1
+    },
+    {
+      name: '魚粉',
+      price: 100,
+      jiro_id: 1
+    }
+  ]
+)
+

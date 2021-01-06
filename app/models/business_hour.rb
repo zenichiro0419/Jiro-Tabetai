@@ -12,4 +12,5 @@
 #  jiro_id    :integer
 #
 class BusinessHour < ApplicationRecord
+  belong_to :jiro
 end

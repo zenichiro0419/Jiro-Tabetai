@@ -12,4 +12,5 @@
 #  jiro_id          :integer
 #
 class MainMenu < ApplicationRecord
+  belongs_to :jiro
 end

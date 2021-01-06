@@ -23,6 +23,7 @@
         <td><%= @jiro.call_timing_i18n %></td></tr>
       </tr>
     </table>
+
   <h2>店内設備</h2>
     <table border="1" style="border-collapse: collapse">
       <tr>
@@ -45,5 +46,45 @@
       </tr>
     </table>
 
+  <h2>卓上調味料</h2>
+    <p style="text-decoration: underline" ><%= table_seasoning_list(@table_seasonings) %></p>
+      
+  <h2>メインメニュー</h2>
+    <% if @main_menus.blank? %>
+      <%= '未設定' %>
+    <% else %>
+      <% @main_menus.each do |main_menu| %>
+        <table class="table">
+          <tr><th>名称：</th>
+            <td><%= main_menu.name %></td></tr>
+          <tr><th>価格：</th>
+            <td><%= "#{main_menu.price}円" %></td></tr>
+          <tr><th>麺の量：</th>
+            <td><%= "#{main_menu.noodles_quantity}g" %></td></tr>
+          <tr><th>コール：</th>
+            <td><%= "" %></td></tr>
+          <tr><th>備考：</th>
+            <td><%= main_menu.note %></td></tr>
+          </tr><br>
+        </table>
+      <% end %>  
+    <% end %>
 
+    <h2>オプションメニュー</h2>
+      <% if @option_menus.blank? %>
+        <%= '未設定' %>
+      <% else %>  
+        <% @option_menus.each do |option_menu| %>
+          <table class='option-menu-table'>
+            <tr>
+              <th><%= option_menu.name %></th>
+              <td><%= "#{option_menu.price}円" %></td>
+            </tr>
+          </table>
+        <% end %>
+      <% end %>
+
+    <h2>店舗補足情報</h2>
+      <%= @jiro.information%>
+   
 
