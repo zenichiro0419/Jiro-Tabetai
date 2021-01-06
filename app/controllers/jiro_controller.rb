@@ -10,7 +10,7 @@ class JiroController < ApplicationController
   private
 
   # @params [Array] main_menu_ids
-  # @return [Hash] toppings_list
+  # @return [Hash] toppings_list => [integer] key, [Array] value
   def create_toppings_list(main_menu_ids)
     toppings = Topping.where(main_menu_id: main_menu_ids)
     main_menu_ids = toppings.pluck(:main_menu_id).uniq
