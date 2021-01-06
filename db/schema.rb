@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_034951) do
+ActiveRecord::Schema.define(version: 2021_01_06_185312) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
     t.integer "wday"
-    t.string "category"
+    t.integer "category", default: 0
     t.string "start_at"
     t.string "end_at"
     t.datetime "created_at", precision: 6, null: false

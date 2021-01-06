@@ -3,7 +3,7 @@
 # Table name: business_hours
 #
 #  id         :bigint           not null, primary key
-#  category   :string(255)
+#  category   :integer          default(0)
 #  end_at     :string(255)
 #  start_at   :string(255)
 #  wday       :integer
@@ -13,4 +13,6 @@
 #
 class BusinessHour < ApplicationRecord
   belong_to :jiro
+
+  enum category: {default: 0, lunch: 1, dinner: 2, holiday: 3}
 end
