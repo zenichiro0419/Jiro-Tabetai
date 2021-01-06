@@ -16,14 +16,14 @@ module JiroHelper
   end
 
   # @params [Array] table_seasonings
-  # @return [string] list
-  def table_seasoning_list(table_seasonings)
-    list = ''
-    if table_seasonings.blank?
-      list = '未設定'
+  # @return [string] one_line_list
+  def show_one_line_list(list_items)
+    one_line_list = ''
+    if list_items.blank?
+      one_line_list = '未設定'
     else
-      table_seasonings.each { |seasoning| list += "#{seasoning} / " }
-      list
+      list_items.each { |item| one_line_list += "#{item} / " }
+      one_line_list
     end
   end
 end

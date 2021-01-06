@@ -47,7 +47,7 @@
     </table>
 
   <h2>卓上調味料</h2>
-    <p style="text-decoration: underline" ><%= table_seasoning_list(@table_seasonings) %></p>
+    <p style="text-decoration: underline" ><%= show_one_line_list(@table_seasonings) %></p>
       
   <h2>メインメニュー</h2>
     <% if @main_menus.blank? %>
@@ -62,7 +62,7 @@
           <tr><th>麺の量：</th>
             <td><%= "#{main_menu.noodles_quantity}g" %></td></tr>
           <tr><th>コール：</th>
-            <td><%= "" %></td></tr>
+            <td><%= show_one_line_list(@toppings_list[main_menu.id]) %></td></tr>
           <tr><th>備考：</th>
             <td><%= main_menu.note %></td></tr>
           </tr><br>
@@ -86,5 +86,6 @@
 
     <h2>店舗補足情報</h2>
       <%= @jiro.information%>
-   
+    
+
 
