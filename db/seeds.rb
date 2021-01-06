@@ -93,9 +93,9 @@ MainMenu.create!(
       jiro_id: 1
     },
     {
-      name: 'ラーメン(大)',
+      name: '冷やし中華(小)',
       noodles_quantity: 400,
-      note: 'マシマシ禁止',
+      note: 'ブタの代わりに鶏肉',
       price: 750,
       jiro_id: 1
     }
@@ -127,3 +127,40 @@ OptionMenu.create!(
   ]
 )
 
+# Topping
+Topping.create!(
+  [
+    {
+      name: 'ヤサイ',
+      main_menu_id: 1
+    },
+    {
+      name: 'アブラ',
+      main_menu_id: 1
+    },
+    {
+      name: 'ニンニク',
+      main_menu_id: 1
+    },
+    {
+      name: 'ヤサイ',
+      main_menu_id: 2
+    },
+    {
+      name: 'アブラ',
+      main_menu_id: 2
+    },
+    {
+      name: 'ニンニク',
+      main_menu_id: 2
+    },
+    {
+      name: 'カラメ',
+      main_menu_id: 2
+    },
+    {
+      name: 'ショウガ',
+      main_menu_id: 2
+    }
+  ]
+)
