@@ -87,5 +87,13 @@
     <h2>店舗補足情報</h2>
       <%= @jiro.information%>
     
+    <h2>営業時間</h2>
+      <table class="table">
+        <% (0..6).each do |wday| %>
+          <tr><th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
+            <td><%= show_business_hour(@business_hour_list, wday) %></td></tr>
+          </tr>
+        <% end %>
+      </table>
 
 
