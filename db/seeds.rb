@@ -256,8 +256,8 @@ BusinessHour.create!(
       jiro_id: 1,
       wday: 6,
       category: 2,
-      start_at: '17:00',
-      end_at: '21:00'
+      start_at: nil,
+      end_at: nil
     }
   ]
 )
