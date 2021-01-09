@@ -9,5 +9,4 @@
 #  jiro_id    :integer
 #
 class TableSeasoning < ApplicationRecord
-  belongs_to :jiro
 end
