@@ -91,7 +91,7 @@
       <table class="table">
         <% (0..6).each do |wday| %>
           <tr><th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
-            <td><%= show_business_hour(@business_hour_list, wday) %></td></tr>
+            <td><%= show_business_hour(@business_hour_list, wday) if @business_hour_list.present? %></td></tr>
           </tr>
         <% end %>
       </table>

@@ -6,7 +6,7 @@ class JirosController < ApplicationController
     @option_menus = @jiro.option_menu
     @toppings_list = create_toppings_list(@main_menus.pluck(:id))
     business_hours = @jiro.business_hour.group_by(&:wday)
-    @business_hour_list = create_business_hour_list(business_hours)
+    @business_hour_list = create_business_hour_list(business_hours) if business_hours.present?
   end
 
   private
