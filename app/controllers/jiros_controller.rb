@@ -1,4 +1,4 @@
-class JiroController < ApplicationController
+class JirosController < ApplicationController
   def show
     @jiro = Jiro.find(params[:id])
     @table_seasonings = @jiro.table_seasoning.pluck(:name)

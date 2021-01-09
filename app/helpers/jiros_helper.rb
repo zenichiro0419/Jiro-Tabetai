@@ -1,4 +1,4 @@
-module JiroHelper
+module JirosHelper
   LUNCH_TIME = 'lunch'.freeze
   DINNER_TIME = 'dinner'.freeze
   HOLIDAY = 'holiday'.freeze
