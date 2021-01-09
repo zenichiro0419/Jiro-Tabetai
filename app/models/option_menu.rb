@@ -10,5 +10,4 @@
 #  jiro_id    :integer
 #
 class OptionMenu < ApplicationRecord
-  belongs_to :jiro
 end

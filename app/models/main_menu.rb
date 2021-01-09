@@ -12,6 +12,4 @@
 #  jiro_id          :integer
 #
 class MainMenu < ApplicationRecord
-  belongs_to :jiro
-  has_many :topping
 end
