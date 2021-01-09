@@ -1,0 +1,34 @@
+<%= form_with(model: @jiro, local: true) do |f| %>
+  <table class="table">
+    <tr><th>店鋪名</th>
+      <td><%= f.text_field :name, class: "name", size: 20 %></td></tr>
+    <tr><th>住所</th>
+      <td><%= f.text_field :address, class: "address", size: 40 %></td></tr>
+    <tr><th>アクセス</th>
+      <td><%= f.text_area :access, class: "access" %></td></tr>
+    <tr><th>駐車場</th>
+      <td>
+        <%= f.radio_button :is_parking_area, nil ,checked: true %>未設定
+        <%= f.radio_button :is_parking_area, true %>あり
+        <%= f.radio_button :is_parking_area, false %>なし
+      </td></tr>
+    <tr><th>TEL</th>
+      <td><%= f.phone_field :phone_number, class: "tel", size: 13 %></td></tr>
+    <tr><th>Twitter</th>
+      <td><%= f.url_field :hp_url, class: "twitter" %></td></tr>
+    <tr><th>注文方法</th>
+      <td>
+        <%= f.radio_button :how_to_order, 0 ,checked: true %>未設定
+        <%= f.radio_button :how_to_order, 1 %>食券制
+        <%= f.radio_button :how_to_order, 2 %>注文制
+      </td></tr>  
+    <tr><th>支払方法</th>
+      <td>
+        <%= f.radio_button :payment_method, 0 ,checked: true %>未設定
+        <%= f.radio_button :payment_method, 1 %>食券提出時
+        <%= f.radio_button :payment_method, 2 %>麺茹で上がり時
+      </td></tr>        
+    <tr><th>営業時間</th>
+  </table>
+  <%= f.submit %>
+<% end %>
