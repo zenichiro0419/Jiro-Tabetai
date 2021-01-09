@@ -93,9 +93,9 @@ MainMenu.create!(
       jiro_id: 1
     },
     {
-      name: 'ラーメン(大)',
+      name: '冷やし中華(小)',
       noodles_quantity: 400,
-      note: 'マシマシ禁止',
+      note: 'ブタの代わりに鶏肉',
       price: 750,
       jiro_id: 1
     }
@@ -127,3 +127,137 @@ OptionMenu.create!(
   ]
 )
 
+# Topping
+Topping.create!(
+  [
+    {
+      name: 'ヤサイ',
+      main_menu_id: 1
+    },
+    {
+      name: 'アブラ',
+      main_menu_id: 1
+    },
+    {
+      name: 'ニンニク',
+      main_menu_id: 1
+    },
+    {
+      name: 'ヤサイ',
+      main_menu_id: 2
+    },
+    {
+      name: 'アブラ',
+      main_menu_id: 2
+    },
+    {
+      name: 'ニンニク',
+      main_menu_id: 2
+    },
+    {
+      name: 'カラメ',
+      main_menu_id: 2
+    },
+    {
+      name: 'ショウガ',
+      main_menu_id: 2
+    }
+  ]
+)
+
+# BusinessHour
+BusinessHour.create!(
+  [
+    {
+      jiro_id: 1,
+      wday: 0,
+      category: 3,
+      start_at: nil,
+      end_at: nil
+    },
+    {
+      jiro_id: 1,
+      wday: 1,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 1,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 2,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 2,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 3,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 3,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 4,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 4,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 5,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 5,
+      category: 2,
+      start_at: '17:00',
+      end_at: '21:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 6,
+      category: 1,
+      start_at: '11:00',
+      end_at: '15:00'
+    },
+    {
+      jiro_id: 1,
+      wday: 6,
+      category: 2,
+      start_at: nil,
+      end_at: nil
+    }
+  ]
+)

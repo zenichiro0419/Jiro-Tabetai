@@ -9,4 +9,5 @@
 #  main_menu_id :integer
 #
 class Topping < ApplicationRecord
+  belongs_to :main_menu
 end

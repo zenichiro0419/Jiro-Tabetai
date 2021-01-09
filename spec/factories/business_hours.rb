@@ -3,7 +3,7 @@
 # Table name: business_hours
 #
 #  id         :bigint           not null, primary key
-#  category   :string(255)
+#  category   :integer          default("default")
 #  end_at     :string(255)
 #  start_at   :string(255)
 #  wday       :integer
