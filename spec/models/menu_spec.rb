@@ -14,6 +14,7 @@
 #  topping4        :string(255)
 #  topping5        :string(255)
 #  topping6        :string(255)
+#  topping7        :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  jiro_id         :integer
