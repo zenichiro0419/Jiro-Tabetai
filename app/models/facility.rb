@@ -21,4 +21,5 @@
 #  jiro_id            :integer
 #
 class Facility < ApplicationRecord
+  belongs_to :jiro
 end
