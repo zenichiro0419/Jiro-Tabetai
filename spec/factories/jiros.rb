@@ -10,6 +10,7 @@
 #  hp_url                 :string(255)
 #  information            :text(65535)
 #  is_closed              :boolean
+#  is_parking_area        :boolean
 #  is_renge               :boolean
 #  name                   :string(255)      not null
 #  payment_method         :integer
