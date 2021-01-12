@@ -11,7 +11,6 @@
 #  updated_at       :datetime         not null
 #  jiro_id          :integer
 #
-class MainMenu < ApplicationRecord
+class Menu < ApplicationRecord
   belongs_to :jiro
-  has_many :topping
 end

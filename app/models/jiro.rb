@@ -28,7 +28,7 @@
 #
 class Jiro < ApplicationRecord
   has_many :table_seasoning
-  has_many :main_menu
+  has_many :menu
   has_many :option_menu
   has_many :business_hour
 
