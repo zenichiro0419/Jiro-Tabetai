@@ -47,6 +47,42 @@ Jiro.create!(
     }
   ]
 )
+# Facility
+Facility.create!(
+  [
+    {
+      jiro_id: 1,
+      in_store_pending: true,
+      is_apron: false,
+      is_hair_tie: true,
+      is_renge: false,
+      is_tissue: true,
+      is_trash_box: true,
+      is_vending_machine: false,
+      is_water_server: true,
+      seasoning1: 'カエシ醤油',
+      seasoning2: '白コショウ',
+      seasoning3: '黒コショウ',
+      seasoning4: '一味唐辛子',
+      seasoning5: 'お酢'
+    },
+    {
+      jiro_id: 2,
+      in_store_pending: true,
+      is_apron: false,
+      is_hair_tie: true,
+      is_renge: false,
+      is_tissue: true,
+      is_trash_box: true,
+      is_vending_machine: false,
+      is_water_server: true
+    },
+    {
+      jiro_id: 3
+    }
+  ]
+)
+
 # Menu
 Menu.create!(
   [
@@ -55,7 +91,7 @@ Menu.create!(
       jiro_id: 1,
       price: 650,
       is_main: true,
-      noodles_quantity: 250,
+      noodle_quantity: 250,
       note: 'マシマシ禁止',
       topping1: 'ヤサイ',
       topping2: 'アブラ',
@@ -68,7 +104,7 @@ Menu.create!(
       jiro_id: 1,
       price: 750,
       is_main: true,
-      noodles_quantity: 400,
+      noodle_quantity: 400,
       note: 'ブタの代わりに鶏肉',
       topping1: 'ヤサイ',
       topping2: 'アブラ',
