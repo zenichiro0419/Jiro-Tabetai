@@ -8,16 +8,10 @@
 #  call_timing            :integer
 #  how_to_order           :integer
 #  hp_url                 :string(255)
-#  in_store_pending       :integer
 #  information            :text(65535)
-#  is_apron               :boolean
 #  is_closed              :boolean
 #  is_parking_area        :boolean
 #  is_renge               :boolean
-#  is_rest_room           :boolean
-#  is_tissue              :boolean
-#  is_trash_box           :boolean
-#  is_water_server        :boolean
 #  name                   :string(255)      not null
 #  payment_method         :integer
 #  phone_number           :string(255)

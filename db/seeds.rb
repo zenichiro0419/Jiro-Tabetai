@@ -12,13 +12,6 @@ Jiro.create!(
       payment_method: 1,
       how_to_order: 1,
       call_timing: 1,
-      is_renge: false,
-      is_tissue: true,
-      is_apron: true,
-      is_water_server: false,
-      is_trash_box: true,
-      is_rest_room: true,
-      in_store_pending: 6,
       information: 'ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。ヤサイマシマシにすると他店舗よりも多い量が来るので注意。',
       is_closed: false,
       registered_jirolian_id: 1
@@ -34,13 +27,6 @@ Jiro.create!(
       payment_method: 1,
       how_to_order: 2,
       call_timing: 1,
-      is_renge: true,
-      is_tissue: false,
-      is_apron: false,
-      is_water_server: true,
-      is_trash_box: true,
-      is_rest_room: false,
-      in_store_pending: 3,
       information: '総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。総帥が麺上げしてくれているときは味が安定する。',
       is_closed: false,
       registered_jirolian_id: 2
@@ -61,106 +47,92 @@ Jiro.create!(
     }
   ]
 )
-# TableSeasoning
-TableSeasoning.create!(
+# Facility
+Facility.create!(
   [
     {
-      name: 'カエシ醤油',
-      jiro_id: 1
+      jiro_id: 1,
+      in_store_pending: true,
+      is_apron: false,
+      is_hair_tie: true,
+      is_renge: false,
+      is_tissue: true,
+      is_trash_box: true,
+      is_vending_machine: false,
+      is_water_server: true,
+      seasoning1: 'カエシ醤油',
+      seasoning2: '白コショウ',
+      seasoning3: '黒コショウ',
+      seasoning4: '一味唐辛子',
+      seasoning5: 'お酢'
     },
     {
-      name: '白コショウ',
-      jiro_id: 1
+      jiro_id: 2,
+      in_store_pending: true,
+      is_apron: false,
+      is_hair_tie: true,
+      is_renge: false,
+      is_tissue: true,
+      is_trash_box: true,
+      is_vending_machine: false,
+      is_water_server: true
     },
     {
-      name: '黒コショウ',
-      jiro_id: 1
-    },
-    {
-      name: '一味唐辛子',
-      jiro_id: 1
-    }
-  ]
-)
-# MainMenu
-MainMenu.create!(
-  [
-    {
-      name: 'ラーメン(小)',
-      noodles_quantity: 250,
-      note: 'マシマシ禁止',
-      price: 650,
-      jiro_id: 1
-    },
-    {
-      name: '冷やし中華(小)',
-      noodles_quantity: 400,
-      note: 'ブタの代わりに鶏肉',
-      price: 750,
-      jiro_id: 1
-    }
-  ]
-)
-# OptionMenu
-OptionMenu.create!(
-  [
-    {
-      name: '生卵',
-      price: 50,
-      jiro_id: 1
-    },
-    {
-      name: '豚追加',
-      price: 150,
-      jiro_id: 1
-    },
-    {
-      name: 'ネギ',
-      price: 100,
-      jiro_id: 1
-    },
-    {
-      name: '魚粉',
-      price: 100,
-      jiro_id: 1
+      jiro_id: 3
     }
   ]
 )
 
-# Topping
-Topping.create!(
+# Menu
+Menu.create!(
   [
     {
-      name: 'ヤサイ',
-      main_menu_id: 1
+      name: 'ラーメン(小)',
+      jiro_id: 1,
+      price: 650,
+      is_main: true,
+      noodle_quantity: 250,
+      note: 'マシマシ禁止',
+      topping1: 'ヤサイ',
+      topping2: 'アブラ',
+      topping3: 'ニンニク',
+      topping4: 'ショウガ',
+      topping5: 'カラアゲ'
     },
     {
-      name: 'アブラ',
-      main_menu_id: 1
+      name: '冷やし中華(小)',
+      jiro_id: 1,
+      price: 750,
+      is_main: true,
+      noodle_quantity: 400,
+      note: 'ブタの代わりに鶏肉',
+      topping1: 'ヤサイ',
+      topping2: 'アブラ',
+      topping3: 'ニンニク',
+      topping4: 'ショウガ',
+      topping5: 'カラアゲ',
+      topping6: 'ガリマヨ',
+      topping6: 'カラメ'
     },
     {
-      name: 'ニンニク',
-      main_menu_id: 1
+      name: '生卵',
+      jiro_id: 1,
+      price: 50
     },
     {
-      name: 'ヤサイ',
-      main_menu_id: 2
+      name: '魚粉',
+      jiro_id: 1,
+      price: 70
     },
     {
-      name: 'アブラ',
-      main_menu_id: 2
+      name: '豚追加',
+      jiro_id: 1,
+      price: 150
     },
     {
-      name: 'ニンニク',
-      main_menu_id: 2
-    },
-    {
-      name: 'カラメ',
-      main_menu_id: 2
-    },
-    {
-      name: 'ショウガ',
-      main_menu_id: 2
+      name: 'ネギ',
+      jiro_id: 1,
+      price: 100
     }
   ]
 )
