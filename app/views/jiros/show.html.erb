@@ -1,0 +1,99 @@
+<h1>店舗情報</h1>
+  <h2>基本情報</h2>
+    <table class="table">
+      <tr><th>店鋪名：</th>
+        <td><%= @jiro.name %></td></tr>
+      <tr><th>住所：</th>
+        <td><%= @jiro.address %></td></tr>
+      <tr><th>アクセス：</th>
+        <td><%= @jiro.access %></td></tr>
+      <tr><th>駐車場：</th>
+        <td><%= exist(@jiro.is_parking_area) %></td></tr>
+      <tr><th>TEL：</th>
+        <td><%= @jiro.phone_number %></td></tr>
+      <tr><th>HP/SNS：</th>
+        <td><%= link_to('コチラ', @jiro.hp_url) %></td></tr>
+      <tr><th>席数：</th>
+        <td><%= @jiro.seat_count %></td></tr>
+      <tr><th>支払方法：</th>
+        <td><%= @jiro.payment_method_i18n %></td></tr>
+      <tr><th>注文方法：</th>
+        <td><%= @jiro.how_to_order_i18n %></td></tr>
+      <tr><th>コールタイミング：</th>
+        <td><%= @jiro.call_timing_i18n %></td></tr>
+      </tr>
+    </table>
+
+  <h2>店内設備</h2>
+    <table border="1" style="border-collapse: collapse">
+      <tr>
+        <th>レンゲ</th>
+        <th>ティッシュ</th>
+        <th>紙エプロン</th>
+        <th>ウォーターサーバー</th>
+        <th>店内待ち椅子</th>
+        <th>ゴミ箱</th>
+        <th>お手洗い</th>
+      </tr>
+      <tr>
+        <td><%= exist(@jiro.is_renge) %></td>
+        <td><%= exist(@jiro.is_tissue) %></td>
+        <td><%= exist(@jiro.is_apron) %></td>
+        <td><%= exist(@jiro.is_water_server) %></td>
+        <td><%= show_waiting_seat(@jiro.in_store_pending) %></td>
+        <td><%= exist(@jiro.is_trash_box) %></td>
+        <td><%= exist(@jiro.is_rest_room) %></td>
+      </tr>
+    </table>
+
+  <h2>卓上調味料</h2>
+    <p style="text-decoration: underline" ><%= show_one_line_list(@table_seasonings) %></p>
+      
+  <h2>メインメニュー</h2>
+    <% if @main_menus.blank? %>
+      <%= '未設定' %>
+    <% else %>
+      <% @main_menus.each do |main_menu| %>
+        <table class="table">
+          <tr><th>名称：</th>
+            <td><%= main_menu.name %></td></tr>
+          <tr><th>価格：</th>
+            <td><%= "#{main_menu.price}円" %></td></tr>
+          <tr><th>麺の量：</th>
+            <td><%= "#{main_menu.noodles_quantity}g" %></td></tr>
+          <tr><th>コール：</th>
+            <td><%= show_one_line_list(@toppings_list[main_menu.id]) %></td></tr>
+          <tr><th>備考：</th>
+            <td><%= main_menu.note %></td></tr>
+          </tr><br>
+        </table>
+      <% end %>
+    <% end %>
+
+    <h2>オプションメニュー</h2>
+      <% if @option_menus.blank? %>
+        <%= '未設定' %>
+      <% else %>  
+        <% @option_menus.each do |option_menu| %>
+          <table class='option-menu-table'>
+            <tr>
+              <th><%= option_menu.name %></th>
+              <td><%= "#{option_menu.price}円" %></td>
+            </tr>
+          </table>
+        <% end %>
+      <% end %>
+
+    <h2>店舗補足情報</h2>
+      <%= @jiro.information%>
+    
+    <h2>営業時間</h2>
+      <table class="table">
+        <% (0..6).each do |wday| %>
+          <tr><th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
+            <td><%= show_business_hour(@business_hour_list, wday) if @business_hour_list.present? %></td></tr>
+          </tr>
+        <% end %>
+      </table>
+
+

@@ -12,4 +12,7 @@
 #  jiro_id    :integer
 #
 class BusinessHour < ApplicationRecord
+  belongs_to :jiro
+
+  enum category: {default: 0, lunch: 1, dinner: 2, holiday: 3}
 end

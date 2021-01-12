@@ -1,0 +1,21 @@
+ja:
+  enums:
+    jiro:
+      payment_method:
+        default: "未設定"
+        only_cash: "現金のみ"
+        available_bisides_cash: "現金以外対応可能"
+      how_to_order:
+        default: "未設定"
+        meal_voucher_system: "食券制"
+        order_system: "注文制"
+      call_timing:
+        default: "未設定"
+        submit_meal_voucher: "食券提出時"
+        boiled_noodles: "麺茹で上がり時"
+    business_hour:
+      category:
+        default: "未設定"
+        lunch: "前半の部"
+        dinner: "後半の部"
+        holiday: "定休日"
