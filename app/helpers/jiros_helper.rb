@@ -33,9 +33,9 @@ module JirosHelper
     end
   end
 
-  def toppings(_main_menu)
-    %w[main_menu.topping1 main_menu.topping2 main_menu.topping3 main_menu.topping4 main_menu.topping5
-       main_menu.topping6 main_menu.topping7]
+  def toppings(main_menu)
+    [main_menu.topping1, main_menu.topping2, main_menu.topping3, main_menu.topping4, main_menu.topping5,
+     main_menu.topping6, main_menu.topping7]
   end
 
   # @params [Hash] business_hour_list

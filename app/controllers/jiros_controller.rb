@@ -2,8 +2,8 @@ class JirosController < ApplicationController
   def show
     @jiro = Jiro.find(params[:id])
     @facility = @jiro.facility
-    @table_seasonings = %w[@facility.seasoning1 @facility.seasoning2 @facility.seasoning3 @facility.seasoning4 @facility.seasoning5
-                           @facility.seasoning6]
+    @table_seasonings = [@facility.seasoning1, @facility.seasoning2, @facility.seasoning3, @facility.seasoning4,
+                         @facility.seasoning5]
     @main_menus = @jiro.menu.main_menu
     @option_menus = @jiro.menu.option_menu
     business_hours = @jiro.business_hour.group_by(&:wday)
