@@ -28,7 +28,7 @@ module JirosHelper
     if list_items.blank?
       one_line_list = '未設定'
     else
-      list_items.each { |item| one_line_list += "#{item} / " }
+      list_items.each { |item| one_line_list += "#{item} / " if item.present? }
       one_line_list
     end
   end
