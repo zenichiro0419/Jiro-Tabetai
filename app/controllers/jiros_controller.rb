@@ -10,6 +10,10 @@ class JirosController < ApplicationController
     @business_hour_list = create_business_hour_list(business_hours) if business_hours.present?
   end
 
+  def new
+    @jiro = Jiro.new
+  end
+
   private
 
   # @params [Hash] business_hours
