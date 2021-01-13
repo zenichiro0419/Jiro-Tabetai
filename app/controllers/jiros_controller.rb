@@ -1,10 +1,7 @@
 class JirosController < ApplicationController
   def show
     @jiro = Jiro.find(params[:id])
-    @table_seasonings = @jiro.table_seasoning.pluck(:name)
-    @main_menus = @jiro.main_menu
-    @option_menus = @jiro.option_menu
-    @toppings_list = create_toppings_list(@main_menus.pluck(:id))
+    @facilities = Jiro.facility
     business_hours = @jiro.business_hour.group_by(&:wday)
     @business_hour_list = create_business_hour_list(business_hours) if business_hours.present?
   end
