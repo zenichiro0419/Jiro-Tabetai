@@ -1,7 +1,7 @@
 class JirosController < ApplicationController
   def show
     @jiro = Jiro.find(params[:id])
-    @facilities = Jiro.facility
+    @facility = Jiro.facility
     business_hours = @jiro.business_hour.group_by(&:wday)
     @business_hour_list = create_business_hour_list(business_hours) if business_hours.present?
   end
