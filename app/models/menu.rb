@@ -21,4 +21,7 @@
 #
 class Menu < ApplicationRecord
   belongs_to :jiro
+
+  scope :main_menu, -> { where(is_main: true) }
+  scope :option_menu, -> { where(is_main: false) }
 end
