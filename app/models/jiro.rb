@@ -21,6 +21,7 @@
 #  registered_jirolian_id :integer
 #
 class Jiro < ApplicationRecord
+  has_one :facility
   has_many :menu
   has_many :business_hour
 
