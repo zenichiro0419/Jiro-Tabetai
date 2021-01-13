@@ -12,23 +12,6 @@ class JirosController < ApplicationController
 
   private
 
-  # @params [Array] main_menu_ids
-  # @return [Hash] toppings_list => [integer] key, [Array] value
-  def create_toppings_list(main_menu_ids)
-    toppings = Topping.where(main_menu_id: main_menu_ids)
-    main_menu_ids = toppings.pluck(:main_menu_id).uniq
-    toppings_list = {}
-
-    main_menu_ids.each do |main_menu_id|
-      topping_names = []
-      toppings.each do |topping|
-        topping_names.push(topping.name) if main_menu_id == topping.main_menu_id
-      end
-      toppings_list.store(main_menu_id, topping_names)
-    end
-    toppings_list
-  end
-
   # @params [Hash] business_hours
   # @return [Hash] business_hour_list => [integer] key, [Hash] value
   def create_business_hour_list(business_hours)
