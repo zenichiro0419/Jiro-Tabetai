@@ -1,32 +1,16 @@
 class JirosController < ApplicationController
   def show
     @jiro = Jiro.find(params[:id])
-    @table_seasonings = @jiro.table_seasoning.pluck(:name)
-    @main_menus = @jiro.main_menu
-    @option_menus = @jiro.option_menu
-    @toppings_list = create_toppings_list(@main_menus.pluck(:id))
+    @facility = @jiro.facility
+    @table_seasonings = [@facility.seasoning1, @facility.seasoning2, @facility.seasoning3, @facility.seasoning4,
+                         @facility.seasoning5]
+    @main_menus = @jiro.menu.main_menu
+    @option_menus = @jiro.menu.option_menu
     business_hours = @jiro.business_hour.group_by(&:wday)
     @business_hour_list = create_business_hour_list(business_hours) if business_hours.present?
   end
 
   private
-
-  # @params [Array] main_menu_ids
-  # @return [Hash] toppings_list => [integer] key, [Array] value
-  def create_toppings_list(main_menu_ids)
-    toppings = Topping.where(main_menu_id: main_menu_ids)
-    main_menu_ids = toppings.pluck(:main_menu_id).uniq
-    toppings_list = {}
-
-    main_menu_ids.each do |main_menu_id|
-      topping_names = []
-      toppings.each do |topping|
-        topping_names.push(topping.name) if main_menu_id == topping.main_menu_id
-      end
-      toppings_list.store(main_menu_id, topping_names)
-    end
-    toppings_list
-  end
 
   # @params [Hash] business_hours
   # @return [Hash] business_hour_list => [integer] key, [Hash] value

@@ -115,23 +115,27 @@ Menu.create!(
       topping6: 'カラメ'
     },
     {
-      name: '生卵',
       jiro_id: 1,
+      is_main: false,
+      name: '生卵',
       price: 50
     },
     {
-      name: '魚粉',
       jiro_id: 1,
+      is_main: false,
+      name: '魚粉',
       price: 70
     },
     {
-      name: '豚追加',
       jiro_id: 1,
+      is_main: false,
+      name: '豚追加',
       price: 150
     },
     {
-      name: 'ネギ',
       jiro_id: 1,
+      is_main: false,
+      name: 'ネギ',
       price: 100
     }
   ]

@@ -28,9 +28,14 @@ module JirosHelper
     if list_items.blank?
       one_line_list = '未設定'
     else
-      list_items.each { |item| one_line_list += "#{item} / " }
+      list_items.each { |item| one_line_list += "#{item} / " if item.present? }
       one_line_list
     end
+  end
+
+  def toppings(main_menu)
+    [main_menu.topping1, main_menu.topping2, main_menu.topping3, main_menu.topping4, main_menu.topping5,
+     main_menu.topping6, main_menu.topping7]
   end
 
   # @params [Hash] business_hour_list
