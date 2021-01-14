@@ -28,6 +28,16 @@ class JirosController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       # sth
     end
+    redirect_to edit_jiro_path(@jiro)
+  end
+
+  def edit
+    @jiro = Jiro.find_by_id(params[:id])
+  end
+
+  def update
+    @jiro = Jiro.find_by_id(params[:id])
+    @jiro.update(params_int(jiro_params))
     redirect_to jiro_path(@jiro)
   end
 
