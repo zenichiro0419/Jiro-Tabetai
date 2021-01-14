@@ -63,8 +63,8 @@
             <td><%= "#{main_menu.price}円" %></td></tr>
           <tr><th>麺の量：</th>
             <td><%= "#{main_menu.noodle_quantity}g" %></td></tr>
-          <tr><th>コール：</th>
-            <td><%= show_one_line_list(toppings(main_menu)) %></td></tr>
+          <tr><th>トッピング：</th>
+            <td><%= show_one_line_list(@toppings_list[main_menu.id]) %></td></tr>
           <tr><th>備考：</th>
             <td><%= main_menu.note %></td></tr>
           </tr><br>
