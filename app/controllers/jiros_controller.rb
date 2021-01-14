@@ -12,7 +12,7 @@ class JirosController < ApplicationController
     @option_menus = @jiro.menu.option_menu
 
     business_hours = @jiro.business_hour
-    @business_hour_list = create_business_hours_list(business_hours)
+    @business_hours_list = create_business_hours_list(business_hours)
   end
 
   def new
@@ -55,7 +55,7 @@ class JirosController < ApplicationController
   # @params [Hash] business_hours
   # @return [Hash] business_hour_list => [integer] key, [Hash] value
   def create_business_hours_list(business_hours)
-    business_hour_list = {}
+    business_hours_list = {}
     business_hours_wday_hash = business_hours.group_by(&:wday)
     (0..6).each do |wday|
       jiro_open_list = {}
@@ -66,7 +66,7 @@ class JirosController < ApplicationController
       end
       business_hour_list.store(wday, jiro_open_list)
     end
-    business_hour_list
+    business_hours_list
   end
 
   def jiro_params
