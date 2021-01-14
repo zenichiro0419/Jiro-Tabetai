@@ -43,7 +43,7 @@ class JirosController < ApplicationController
       redirect_to edit_jiro_path(@jiro)
     else
       flash.notice = '更新に失敗しました。'
-      render jiro_path(@jiro)
+      render action: :edit
     end
   end
 
@@ -80,7 +80,7 @@ class JirosController < ApplicationController
       business_hours_wday_hash[wday].each do |business_hour|
         jiro_open_list.store(business_hour.category, [business_hour.start_at, business_hour.end_at])
       end
-      business_hour_list.store(wday, jiro_open_list)
+      business_hours_list.store(wday, jiro_open_list)
     end
     business_hours_list
   end

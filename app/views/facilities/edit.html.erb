@@ -1,0 +1,62 @@
+<H3>店舗設備</H3>
+<table class="form-table">
+    <%= form_with(model: @facility, url: jiro_facilities_path, method: :put, local: true) do |f| %>
+      <tr>
+        <th><%= f.label :is_renge, "レンゲ" %></th>
+        <td>
+          <%= f.radio_button(:is_renge, nil, class: "is_renge", checked: true) %>未設定
+          <%= f.radio_button(:is_renge, true, class: "is_renge") %>あり
+          <%= f.radio_button(:is_renge, false, class: "is_renge") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_tissue, "ティッシュ" %></th>
+        <td>
+          <%= f.radio_button(:is_tissue, nil, class: "is_tissue", checked: true) %>未設定
+          <%= f.radio_button(:is_tissue, true, class: "is_tissue") %>あり
+          <%= f.radio_button(:is_tissue, false, class: "is_tissue") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_apron, "エプロン" %></th>
+        <td>
+          <%= f.radio_button(:is_apron, nil, class: "is_apron", checked: true) %>未設定
+          <%= f.radio_button(:is_apron, true, class: "is_apron") %>あり
+          <%= f.radio_button(:is_apron, false, class: "is_apron") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_water_server, "ウォーターサーバー" %></th>
+        <td>
+          <%= f.radio_button(:is_water_server, nil, class: "is_water_server", checked: true) %>未設定
+          <%= f.radio_button(:is_water_server, true, class: "is_water_server") %>あり
+          <%= f.radio_button(:is_water_server, false, class: "is_water_server") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_trash_box, "ゴミ箱" %></th>
+        <td>
+          <%= f.radio_button(:is_trash_box, nil, class: "is_trash_box", checked: true) %>未設定
+          <%= f.radio_button(:is_trash_box, true, class: "is_trash_box") %>あり
+          <%= f.radio_button(:is_trash_box, false, class: "is_trash_box") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_vending_machine, "自動販売機" %></th>
+        <td>
+          <%= f.radio_button(:is_vending_machine, nil, class: "is_vending_machine", checked: true) %>未設定
+          <%= f.radio_button(:is_vending_machine, true, class: "is_vending_machine") %>あり
+          <%= f.radio_button(:is_vending_machine, false, class: "is_vending_machine") %>なし
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :is_hair_tie, "ヘアゴム" %></th>
+        <td>
+          <%= f.radio_button(:is_hair_tie, nil, class: "is_hair_tie", checked: true) %>未設定
+          <%= f.radio_button(:is_hair_tie, true, class: "is_hair_tie") %>あり
+          <%= f.radio_button(:is_hair_tie, false, class: "is_hair_tie") %>なし
+        </td>
+      </tr>      
+      <%= f.submit "更新" %>
+    <% end %>
+  </table>

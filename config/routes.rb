@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :jiros, only: [:show, :new, :create, :edit, :update]
+  resources :jiros, except: [:destroy] do
+    resource :facilities, only: [:edit, :update]
+  end
 end
