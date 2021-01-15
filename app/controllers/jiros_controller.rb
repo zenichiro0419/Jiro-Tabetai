@@ -23,10 +23,10 @@ class JirosController < ApplicationController
     ActiveRecord::Base.transaction do
       @jiro = Jiro.create(params_int(jiro_params))
       Facility.create(jiro_id: @jiro.id)
-      Menu.create(jiro_id: @jiro.id)
-      BusinessHour.create(jiro_id: @jiro.id)
+      # Menu.create(jiro_id: @jiro.id)
+      # BusinessHour.create(jiro_id: @jiro.id)
     rescue ActiveRecord::RecordInvalid
-      # sth
+      render 'show'
     end
     redirect_to edit_jiro_path(@jiro)
   end
