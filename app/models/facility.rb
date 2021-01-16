@@ -23,5 +23,5 @@
 class Facility < ApplicationRecord
   belongs_to :jiro, optional: true
 
-  validates :jiro_id, uniqueness: true
+  validates :jiro_id, uniqueness: true, presence: true
 end
