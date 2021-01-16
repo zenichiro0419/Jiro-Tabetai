@@ -16,9 +16,9 @@
       <tr>
         <th><%= f.label :is_parking_area, "駐車場" %></th>
         <td>
-          <%= f.radio_button(:is_parking_area, nil, class: "is_parking_area" ,checked: true) %>未設定
-          <%= f.radio_button(:is_parking_area, true, class: "is_parking_area") %>あり
-          <%= f.radio_button(:is_parking_area, false, class: "is_parking_area") %>なし
+          <label><%= f.radio_button(:is_parking_area, nil, class: "is_parking_area" ,checked: true) %>未設定</label>
+          <label><%= f.radio_button(:is_parking_area, true, class: "is_parking_area") %>あり</label>
+          <label><%= f.radio_button(:is_parking_area, false, class: "is_parking_area") %>なし</label>
         </td>
       </tr>
       <tr>
@@ -36,25 +36,25 @@
       <tr>
         <th><%= f.label :payment_method, "支払方法" %></th>
         <td>
-          <%= f.radio_button(:payment_method, 0, class: "payment_method", checked: true) %>未設定
-          <%= f.radio_button(:payment_method, 1, class: "payment_method") %>現金のみ
-          <%= f.radio_button(:payment_method, 2, class: "payment_method") %>現金以外可
+          <label><%= f.radio_button(:payment_method, 0, class: "payment_method", checked: true) %>未設定</label>
+          <label><%= f.radio_button(:payment_method, 1, class: "payment_method") %>現金のみ</label>
+          <label><%= f.radio_button(:payment_method, 2, class: "payment_method") %>現金以外可</label>
         </td>
       </tr>
       <tr>
         <th><%= f.label :how_to_order, "注文方法" %></th>
         <td>
-          <%= f.radio_button(:how_to_order, 0, class: "how_to_order", checked: true) %>未設定
-          <%= f.radio_button(:how_to_order, 1, class: "how_to_order") %>食券制
-          <%= f.radio_button(:how_to_order, 2, class: "how_to_order") %>注文制
+          <label><%= f.radio_button(:how_to_order, 0, class: "how_to_order", checked: true) %>未設定</label>
+          <label><%= f.radio_button(:how_to_order, 1, class: "how_to_order") %>食券制</label>
+          <label><%= f.radio_button(:how_to_order, 2, class: "how_to_order") %>注文制</label>
         </td>
       </tr>
       <tr>
         <th><%= f.label :call_timing, "トッピングコール" %></th>
         <td>
-          <%= f.radio_button(:call_timing, 0, class: "call_timing", checked: true) %>未設定
-          <%= f.radio_button(:call_timing, 1, class: "call_timing") %>食券提出時
-          <%= f.radio_button(:call_timing, 2, class: "call_timing") %>麺茹で上がり時
+          <label><%= f.radio_button(:call_timing, 0, class: "call_timing", checked: true) %>未設定</label>
+          <label><%= f.radio_button(:call_timing, 1, class: "call_timing") %>食券提出時</label>
+          <label><%= f.radio_button(:call_timing, 2, class: "call_timing") %>麺茹で上がり時</label>
         </td>
       </tr>
       <%= f.submit "登録" %>
