@@ -15,6 +15,39 @@ class JirosController < ApplicationController
     @business_hours_list = create_business_hours_list(business_hours)
   end
 
+  def new
+    @jiro = Jiro.new
+  end
+
+  def create
+    ActiveRecord::Base.transaction do
+      @jiro = Jiro.create(params_int(jiro_params))
+      Facility.create(jiro_id: @jiro.id)
+      # Menu.create(jiro_id: @jiro.id)
+      # BusinessHour.create(jiro_id: @jiro.id)
+    rescue ActiveRecord::RecordInvalid
+      # 具体的な処理はあとで考える
+      render 'show'
+    end
+    redirect_to jiro_path(@jiro)
+  end
+
+  def edit
+    @jiro = Jiro.find_by_id(params[:id])
+  end
+
+  def update
+    @jiro = Jiro.find_by_id(params[:id])
+    # TODO: Header作成時にflashを埋め込む。
+    if @jiro.update_attributes(params_int(jiro_params))
+      flash.notice = '更新が完了しました。'
+      redirect_to jiro_path(@jiro)
+    else
+      flash.notice = '更新に失敗しました。'
+      render action: :edit
+    end
+  end
+
   private
 
   # @pramas [Facility] facility
@@ -51,5 +84,10 @@ class JirosController < ApplicationController
       business_hours_list.store(wday, jiro_open_list)
     end
     business_hours_list
+  end
+
+  def jiro_params
+    params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
+                                 :payment_method, :how_to_order, :call_timing)
   end
 end
