@@ -53,7 +53,7 @@ class JirosController < ApplicationController
   # @return [Array]
   def create_table_seasonings_list(facility)
     [facility.seasoning1, facility.seasoning2, facility.seasoning3, facility.seasoning4,
-     facility.seasoning5]
+     facility.seasoning5].uniq
   end
 
   # @pramas [MainMenu] main_menus

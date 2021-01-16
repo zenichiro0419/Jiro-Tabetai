@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_180953) do
+ActiveRecord::Schema.define(version: 2021_01_16_095346) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2021_01_12_180953) do
     t.boolean "is_vending_machine"
     t.boolean "is_hair_tie"
     t.integer "in_store_pending"
-    t.string "seasoning1"
-    t.string "seasoning2"
-    t.string "seasoning3"
-    t.string "seasoning4"
-    t.string "seasoning5"
+    t.integer "seasoning1"
+    t.integer "seasoning2"
+    t.integer "seasoning3"
+    t.integer "seasoning4"
+    t.integer "seasoning5"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

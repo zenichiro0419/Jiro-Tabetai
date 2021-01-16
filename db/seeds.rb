@@ -60,11 +60,11 @@ Facility.create!(
       is_trash_box: true,
       is_vending_machine: false,
       is_water_server: true,
-      seasoning1: 'カエシ醤油',
-      seasoning2: '白コショウ',
-      seasoning3: '黒コショウ',
-      seasoning4: '一味唐辛子',
-      seasoning5: 'お酢'
+      seasoning1: 1,
+      seasoning2: 2,
+      seasoning3: 3,
+      seasoning4: 4,
+      seasoning5: 5
     },
     {
       jiro_id: 2,

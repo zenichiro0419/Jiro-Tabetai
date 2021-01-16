@@ -11,11 +11,11 @@
 #  is_trash_box       :boolean
 #  is_vending_machine :boolean
 #  is_water_server    :boolean
-#  seasoning1         :string(255)
-#  seasoning2         :string(255)
-#  seasoning3         :string(255)
-#  seasoning4         :string(255)
-#  seasoning5         :string(255)
+#  seasoning1         :integer
+#  seasoning2         :integer
+#  seasoning3         :integer
+#  seasoning4         :integer
+#  seasoning5         :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  jiro_id            :integer
