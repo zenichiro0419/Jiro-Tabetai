@@ -28,7 +28,7 @@ class JirosController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       render 'show'
     end
-    redirect_to edit_jiro_path(@jiro)
+    redirect_to jiro_path(@jiro)
   end
 
   def edit
@@ -36,11 +36,11 @@ class JirosController < ApplicationController
   end
 
   def update
-    @jiro = Jiro.new(params_int(jiro_params))
+    @jiro = Jiro.find_by_id(params[:id])
     # TODO: Header作成時にflashを埋め込む。
-    if @jiro.save
+    if @jiro.update_attributes(params_int(jiro_params))
       flash.notice = '更新が完了しました。'
-      redirect_to edit_jiro_path(@jiro)
+      redirect_to jiro_path(@jiro)
     else
       flash.notice = '更新に失敗しました。'
       render action: :edit

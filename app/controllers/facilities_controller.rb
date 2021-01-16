@@ -5,16 +5,15 @@ class FacilitiesController < ApplicationController
 
   def update
     @jiro = Jiro.find_by_id(params[:jiro_id])
-    @facility = Facility.new(facility_params)
+    @facility = @jiro.facility
     # TODO: Header作成時にflashを埋め込む。
-    if @facility.save
+    if @facility.update_attributes(facility_params)
       flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
     else
       flash.notice = '更新に失敗しました。'
-      render action: :edit
+      render 'edit'
     end
-    pp @facility
   end
 
   private
