@@ -49,7 +49,13 @@
           <%= f.radio_button(:is_hair_tie, true, class: "is_hair_tie") %>あり
           <%= f.radio_button(:is_hair_tie, false, class: "is_hair_tie") %>なし
         </td>
+      </tr>
+        <th><%= f.label :in_store_pending, "店内待ち数" %></th>
+        <td>
+          <%= f.number_field(:in_store_pending, class: "in_store_pending", min: 0) %>人
+        </td>
       </tr>      
+
       <%= f.submit "更新" %>
     <% end %>
   </table>

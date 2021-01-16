@@ -31,20 +31,20 @@
         <th>ティッシュ</th>
         <th>紙エプロン</th>
         <th>ウォーターサーバー</th>
-        <th>店内待ち椅子</th>
         <th>ゴミ箱</th>
         <th>自動販売機</th>
         <th>髪留め</th>
+        <th>店内待ち数</th>
       </tr>
       <tr>
         <td><%= exist(@facility.is_renge) %></td>
         <td><%= exist(@facility.is_tissue) %></td>
         <td><%= exist(@facility.is_apron) %></td>
         <td><%= exist(@facility.is_water_server) %></td>
-        <td><%= show_waiting_seat(@facility.in_store_pending) %></td>
         <td><%= exist(@facility.is_trash_box) %></td>
         <td><%= exist(@facility.is_vending_machine) %></td>
         <td><%= exist(@facility.is_hair_tie) %></td>
+        <td><%= show_waiting_seat(@facility.in_store_pending) %></td>
       </tr>
     </table>
 

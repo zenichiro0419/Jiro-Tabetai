@@ -20,6 +20,6 @@ class FacilitiesController < ApplicationController
 
   def facility_params
     params.require(:facility).permit(:jiro_id, :is_renge, :is_tissue, :is_apron, :is_water_server, :is_trash_box,
-                                     :is_vending_machine, :is_hair_tie).merge(jiro_id: @jiro.id)
+                                     :is_vending_machine, :is_hair_tie, :in_store_pending).merge(jiro_id: @jiro.id)
   end
 end
