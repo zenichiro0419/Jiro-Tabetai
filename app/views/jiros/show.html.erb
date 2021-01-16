@@ -31,20 +31,20 @@
         <th>ティッシュ</th>
         <th>紙エプロン</th>
         <th>ウォーターサーバー</th>
-        <th>店内待ち椅子</th>
         <th>ゴミ箱</th>
         <th>自動販売機</th>
         <th>髪留め</th>
+        <th>店内待ち数</th>
       </tr>
       <tr>
         <td><%= exist(@facility.is_renge) %></td>
         <td><%= exist(@facility.is_tissue) %></td>
         <td><%= exist(@facility.is_apron) %></td>
         <td><%= exist(@facility.is_water_server) %></td>
-        <td><%= show_waiting_seat(@facility.in_store_pending) %></td>
         <td><%= exist(@facility.is_trash_box) %></td>
         <td><%= exist(@facility.is_vending_machine) %></td>
         <td><%= exist(@facility.is_hair_tie) %></td>
+        <td><%= show_waiting_seat(@facility.in_store_pending) %></td>
       </tr>
     </table>
 
@@ -63,8 +63,8 @@
             <td><%= "#{main_menu.price}円" %></td></tr>
           <tr><th>麺の量：</th>
             <td><%= "#{main_menu.noodle_quantity}g" %></td></tr>
-          <tr><th>コール：</th>
-            <td><%= show_one_line_list(toppings(main_menu)) %></td></tr>
+          <tr><th>トッピング：</th>
+            <td><%= show_one_line_list(@toppings_list[main_menu.id]) %></td></tr>
           <tr><th>備考：</th>
             <td><%= main_menu.note %></td></tr>
           </tr><br>
@@ -93,7 +93,7 @@
       <table class="table">
         <% (0..6).each do |wday| %>
           <tr><th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
-            <td><%= show_business_hour(@business_hour_list, wday) if @business_hour_list.present? %></td></tr>
+            <td><%= show_business_hour(@business_hours_list, wday) if @business_hour_list.present? %></td></tr>
           </tr>
         <% end %>
       </table>
