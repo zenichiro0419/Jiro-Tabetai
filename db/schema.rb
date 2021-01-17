@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_064227) do
+ActiveRecord::Schema.define(version: 2021_01_17_105504) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_064227) do
     t.integer "payment_method"
     t.integer "how_to_order"
     t.integer "call_timing"
-    t.boolean "is_renge"
     t.text "information"
     t.boolean "is_closed"
     t.integer "registered_jirolian_id"
