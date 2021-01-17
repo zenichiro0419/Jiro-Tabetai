@@ -36,6 +36,8 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.11'
   # Setup enum_help
   gem 'enum_help'
+  # Setup activerecord-import for bulk insert & update
+  gem "activerecord-import"
 end
 
 group :development do
