@@ -33,25 +33,34 @@ module JirosHelper
     end
   end
 
-  # @params [Hash] business_hour_list
+  # @params [Hash] wdays_open_list => [integer] key, [Array]value
   # @params [integer] wday
   # @return [string] jiro_open_status
-  def show_business_hour(business_hour_list, wday)
+  def show_business_hour(wdays_open_list, wday)
+    return if wdays_open_list.blank?
+
     jiro_open_status = []
-    business_hour_list[wday].each do |category, business_hour|
-      case category
-      when HOLIDAY
+    wdays_open_list[wday].each do |open_status|
+      if open_status.is_holiday == true
         jiro_open_status.push('定休日')
-        break
-      when LUNCH_TIME
-        jiro_open_status.push("前半の部：#{from_open_to_end(business_hour[START_AT], business_hour[END_AT])}")
-      when DINNER_TIME
-        jiro_open_status.push("後半の部：#{from_open_to_end(business_hour[START_AT], business_hour[END_AT])}")
       else
-        jiro_open_status
+        lunch_or_dinner(open_status, jiro_open_status)
       end
     end
-    jiro_open_status.join('　')
+    jiro_open_status.join(' ')
+  end
+
+  # @params [BusinessHour] open_status
+  # @params [Array] jiro_open_status
+  # @return [Array] jiro_open_status
+  def lunch_or_dinner(open_status, jiro_open_status)
+    case open_status.category
+    when LUNCH_TIME
+      jiro_open_status.push("前半の部：#{from_open_to_end(open_status.start_at, open_status.end_at)}")
+    when DINNER_TIME
+      jiro_open_status.push("後半の部：#{from_open_to_end(open_status.start_at, open_status.end_at)}")
+    end
+    jiro_open_status
   end
 
   # @params [string] start_at, end_at

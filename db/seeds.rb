@@ -147,13 +147,15 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 0,
-      category: 3,
+      is_holiday: true,
+      category: 0,
       start_at: nil,
       end_at: nil
     },
     {
       jiro_id: 1,
       wday: 1,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -161,6 +163,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 1,
+      is_holiday: false,
       category: 2,
       start_at: '17:00',
       end_at: '21:00'
@@ -168,6 +171,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 2,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -175,6 +179,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 2,
+      is_holiday: false,
       category: 2,
       start_at: '17:00',
       end_at: '21:00'
@@ -182,6 +187,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 3,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -189,6 +195,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 3,
+      is_holiday: false,
       category: 2,
       start_at: '17:00',
       end_at: '21:00'
@@ -196,6 +203,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 4,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -203,6 +211,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 4,
+      is_holiday: false,
       category: 2,
       start_at: '17:00',
       end_at: '21:00'
@@ -210,6 +219,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 5,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -217,6 +227,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 5,
+      is_holiday: false,
       category: 2,
       start_at: '17:00',
       end_at: '21:00'
@@ -224,6 +235,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 6,
+      is_holiday: false,
       category: 1,
       start_at: '11:00',
       end_at: '15:00'
@@ -231,6 +243,7 @@ BusinessHour.create!(
     {
       jiro_id: 1,
       wday: 6,
+      is_holiday: false,
       category: 2,
       start_at: nil,
       end_at: nil

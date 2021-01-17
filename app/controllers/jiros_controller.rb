@@ -11,8 +11,7 @@ class JirosController < ApplicationController
     @toppings_list = create_toppings_list(@main_menus)
     @option_menus = @jiro.menu.option_menu
 
-    business_hours = @jiro.business_hour
-    @business_hours_list = create_business_hours_list(business_hours)
+    @business_hour_wdays_list = @jiro.business_hour.group_by(&:wday)
   end
 
   def new
@@ -69,25 +68,10 @@ class JirosController < ApplicationController
     toppings_list
   end
 
-  # @params [Hash] business_hours
-  # @return [Hash] business_hour_list => [integer] key, [Hash] value
-  def create_business_hours_list(business_hours)
-    business_hours_list = {}
-    business_hours_wday_hash = business_hours.group_by(&:wday)
-    (0..6).each do |wday|
-      jiro_open_list = {}
-      break if business_hours_wday_hash[wday].nil?
-
-      business_hours_wday_hash[wday].each do |business_hour|
-        jiro_open_list.store(business_hour.category, [business_hour.start_at, business_hour.end_at])
-      end
-      business_hours_list.store(wday, jiro_open_list)
-    end
-    business_hours_list
-  end
-
   def jiro_params
     params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
                                  :payment_method, :how_to_order, :call_timing)
   end
+
+  def initialize_business_hours_params; end
 end
