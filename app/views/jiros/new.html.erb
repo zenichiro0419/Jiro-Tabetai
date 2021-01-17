@@ -16,7 +16,6 @@
       <tr>
         <th><%= f.label :is_parking_area, "駐車場" %></th>
         <td>
-          <label><%= f.radio_button(:is_parking_area, nil, class: "is_parking_area" ,checked: true) %>未設定</label>
           <label><%= f.radio_button(:is_parking_area, true, class: "is_parking_area") %>あり</label>
           <label><%= f.radio_button(:is_parking_area, false, class: "is_parking_area") %>なし</label>
         </td>
