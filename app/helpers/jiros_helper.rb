@@ -1,23 +1,20 @@
 module JirosHelper
   LUNCH_TIME = 'lunch'.freeze
   DINNER_TIME = 'dinner'.freeze
-  HOLIDAY = 'holiday'.freeze
-  START_AT = 0
-  END_AT = 1
 
   # @params [boolean] facility
   # @return [string]
   def exist(facility)
     return '未設定' if facility.nil?
-    return '○' if facility
-    return '×' unless facility
+
+    facility ? '○' : '×'
   end
 
   # @params [integer] seat_count
   # @return [string]
   def show_waiting_seat(seat_count)
     return '未設定' if seat_count.nil?
-    return "○(#{seat_count})" if seat_count.positive?
+    return "○(#{seat_count}人)" if seat_count.positive?
     return '×' if seat_count.zero?
   end
 
@@ -41,11 +38,7 @@ module JirosHelper
 
     jiro_open_status = []
     wdays_open_list[wday].each do |open_status|
-      if open_status.is_holiday == true
-        jiro_open_status.push('定休日')
-      else
-        lunch_or_dinner(open_status, jiro_open_status)
-      end
+      open_status.is_holiday.present? ? jiro_open_status.push('定休日') : lunch_or_dinner(open_status, jiro_open_status)
     end
     jiro_open_status.join(' ')
   end
