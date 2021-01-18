@@ -22,11 +22,18 @@ class JirosController < ApplicationController
     ActiveRecord::Base.transaction do
       @jiro = Jiro.create(params_int(jiro_params))
       Facility.create(jiro_id: @jiro.id)
-      # Menu.create(jiro_id: @jiro.id)
-      # BusinessHour.create(jiro_id: @jiro.id)
+
+      business_hours = []
+      (0..6).each do |wday|
+        (1..2).each do |category|
+          business_hours << BusinessHour.new(wday: wday, category: category, jiro_id: @jiro.id)
+        end
+      end
+      BusinessHour.import(business_hours)
+    # Menu.create(jiro_id: @jiro.id)
     rescue ActiveRecord::RecordInvalid
       # 具体的な処理はあとで考える
-      render 'show'
+      render :show
     end
     redirect_to jiro_path(@jiro)
   end
@@ -72,6 +79,4 @@ class JirosController < ApplicationController
     params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
                                  :payment_method, :how_to_order, :call_timing)
   end
-
-  def initialize_business_hours_params; end
 end
