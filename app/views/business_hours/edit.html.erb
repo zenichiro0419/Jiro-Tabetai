@@ -1,0 +1,23 @@
+<%= form_with(model: @business_hours, url: jiro_business_hours_path, method: :patch, local: true) do |form| %>
+  <table>
+  <% @business_hours.each do |business_hour| %>
+    <%= form.fields_for("business_hour[]", business_hour) do |bh| %>
+      <tr>
+        <td>
+          <label class='form-label form-switch'>
+            <%= bh.check_box(:is_holiday,{ class: 'form-label form-switch' }, true, false) %>定休日
+          </label>
+        </td>
+        <td>
+          <label><%= bh.hidden_field(:category, value: business_hour.category) %></label>
+        </td>
+        <td>
+          <label><%= bh.time_field(:start_at) %></label>
+          〜<label><%= bh.time_field(:end_at) %></label>
+        </td>
+      </tr>  
+    <% end %>
+  <% end %>
+  </table>
+  <%= form.submit "登録" %>
+<% end %>
