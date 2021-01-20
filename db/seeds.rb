@@ -148,7 +148,15 @@ BusinessHour.create!(
       jiro_id: 1,
       wday: 0,
       is_holiday: true,
-      category: 0,
+      category: 1,
+      start_at: nil,
+      end_at: nil
+    },
+    {
+      jiro_id: 1,
+      wday: 0,
+      is_holiday: true,
+      category: 2,
       start_at: nil,
       end_at: nil
     },
