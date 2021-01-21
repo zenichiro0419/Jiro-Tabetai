@@ -1,0 +1,60 @@
+<H3>メニュー</H3>
+<%= form_with(model: @menu_items, url: jiro_menu_items_path, method: :patch, local: true) do |form| %>
+  <table>
+  <% @menu_items.each do |menu_item| %>
+    <%= form.fields_for("menu_item[]", menu_item) do |mi| %>
+      <tr>
+        <td>
+          <%= mi.label :name, "メニュー名" %>
+          <%= mi.text_field(:name) %>
+        </td>
+        <td>
+          <%= mi.label :price, "値段" %>
+          <%= mi.text_field(:price) %>
+        </td>
+        <% if menu_item.is_main %>
+          <td>
+            <%= mi.label :noodle_quantity, "麺量" %>
+            <%= mi.text_field(:noodle_quantity) %>
+          </td>
+      </tr>
+      <tr>
+          <td>
+            <%= mi.label :topping1, "トッピング①" %>
+            <%= mi.text_field(:topping1) %>
+          </td>
+          <td>
+            <%= mi.label :topping2, "トッピング②" %>
+            <%= mi.text_field(:topping2) %>
+          </td>
+          <td>
+            <%= mi.label :topping3, "トッピング③" %>
+            <%= mi.text_field(:topping3) %>
+          </td>
+          <td>
+            <%= mi.label :topping4, "トッピング④" %>
+            <%= mi.text_field(:topping4) %>
+          </td>
+          <td>
+            <%= mi.label :topping5, "トッピング⑤" %>
+            <%= mi.text_field(:topping5) %>
+          </td>
+          <td>
+            <%= mi.label :topping6, "トッピング⑥" %>
+            <%= mi.text_field(:topping6) %>
+          </td>
+          <td>
+            <%= mi.label :topping7, "トッピング⑦" %>
+            <%= mi.text_field(:topping7) %>
+          </td>          
+          <td>
+            <%= mi.label :note, "備考" %>
+            <%= mi.text_field(:note) %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <%= form.submit "登録" %>
+<% end %>
