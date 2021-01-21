@@ -83,8 +83,8 @@ Facility.create!(
   ]
 )
 
-# Menu
-Menu.create!(
+# MenuItem
+MenuItem.create!(
   [
     {
       name: 'ラーメン(小)',
@@ -112,7 +112,7 @@ Menu.create!(
       topping4: 'ショウガ',
       topping5: 'カラアゲ',
       topping6: 'ガリマヨ',
-      topping6: 'カラメ'
+      topping7: 'カラメ'
     },
     {
       jiro_id: 1,

@@ -19,7 +19,7 @@
 #  updated_at      :datetime         not null
 #  jiro_id         :integer
 #
-class Menu < ApplicationRecord
+class MenuItem < ApplicationRecord
   belongs_to :jiro
 
   scope :main_menu, -> { where(is_main: true) }
