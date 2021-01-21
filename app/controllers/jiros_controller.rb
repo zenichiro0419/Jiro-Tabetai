@@ -7,9 +7,9 @@ class JirosController < ApplicationController
     @facility = @jiro.facility
     @table_seasonings = create_table_seasonings_list(@facility)
 
-    @main_menus = @jiro.menu.main_menu
+    @main_menus = @jiro.menu_item.main_menu
     @toppings_list = create_toppings_list(@main_menus)
-    @option_menus = @jiro.menu.option_menu
+    @option_menus = @jiro.menu_item.option_menu
 
     @business_hour_wdays_list = @jiro.business_hour.group_by(&:wday)
   end

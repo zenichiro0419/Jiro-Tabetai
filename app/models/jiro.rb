@@ -21,7 +21,7 @@
 #
 class Jiro < ApplicationRecord
   has_one :facility
-  has_many :menu
+  has_many :menu_item
   has_many :business_hour
 
   enum payment_method: {default: 0, only_cash: 1, available_bisides_cash: 2}, _prefix: true
