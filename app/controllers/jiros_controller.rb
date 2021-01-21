@@ -30,7 +30,13 @@ class JirosController < ApplicationController
         end
       end
       BusinessHour.import(business_hours)
-    # Menu.create(jiro_id: @jiro.id)
+
+      menu_items = []
+      6.times do
+        menu_items << MenuItem.new(is_main: true, jiro_id: @jiro.id)
+        menu_items << MenuItem.new(is_main: false, jiro_id: @jiro.id)
+      end
+      MenuItem.import(menu_items)
     rescue ActiveRecord::RecordInvalid
       # 具体的な処理はあとで考える
       render :show
