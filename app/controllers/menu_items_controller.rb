@@ -4,7 +4,6 @@ class MenuItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     @jiro = Jiro.find_by_id(params[:jiro_id])
     @menu_items = MenuItem.where(jiro_id: params[:jiro_id])
     update_menu_items = []
