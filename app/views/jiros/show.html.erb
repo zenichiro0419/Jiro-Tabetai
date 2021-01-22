@@ -57,6 +57,7 @@
     <% else %>
       <% @main_menus.each do |main_menu| %>
         <table class="table">
+        <% if main_menu.name.present? %>
           <tr><th>名称：</th>
             <td><%= main_menu.name %></td></tr>
           <tr><th>価格：</th>
@@ -68,6 +69,7 @@
           <tr><th>備考：</th>
             <td><%= main_menu.note %></td></tr>
           </tr><br>
+        <% end %>  
         </table>
       <% end %>
     <% end %>
@@ -75,13 +77,15 @@
     <h2>オプションメニュー</h2>
       <% if @option_menus.blank? %>
         <%= '未設定' %>
-      <% else %>  
+      <% else %>
         <% @option_menus.each do |option_menu| %>
           <table class='option-menu-table'>
-            <tr>
-              <th><%= option_menu.name %></th>
-              <td><%= "#{option_menu.price}円" %></td>
-            </tr>
+            <% if option_menu.name.present? %>
+              <tr>
+                <th><%= option_menu.name %></th>
+                <td><%= "#{option_menu.price}円" %></td>
+              </tr>
+            <% end %>  
           </table>
         <% end %>
       <% end %>
