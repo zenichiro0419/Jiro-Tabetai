@@ -3,6 +3,7 @@
   <table>
   <% @menu_items.each do |menu_item| %>
     <%= form.fields_for("menu_item[]", menu_item) do |mi| %>
+      <tr><th><%= show_main_or_option(menu_item) %></th></tr>
       <tr>
         <td>
           <%= mi.label :name, "メニュー名" %>
