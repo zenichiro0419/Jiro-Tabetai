@@ -17,7 +17,7 @@ class BusinessHoursController < ApplicationController
     BusinessHour.transaction do
       BusinessHour.import(update_business_hours, on_duplicate_key_update: [:is_holiday, :start_at, :end_at])
       redirect_to jiro_path(@jiro)
-    rescue StandardError
+    rescue ActiveRecord::RecordInvalid
       render :show
     end
   end

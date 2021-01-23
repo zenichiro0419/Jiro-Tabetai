@@ -17,7 +17,7 @@ class MenuItemsController < ApplicationController
                       on_duplicate_key_update: [:name, :price, :noodle_quantity, :note, :topping1, :topping2, :topping3,
                                                 :topping4, :topping5, :topping6, :topping7])
       redirect_to jiro_path(@jiro)
-    rescue StandardError
+    rescue ActiveRecord::RecordInvalid
       render :show
     end
   end
@@ -32,7 +32,7 @@ class MenuItemsController < ApplicationController
     MenuItem.transaction do
       MenuItem.import(update_option_menu_items, on_duplicate_key_update: [:name, :price])
       redirect_to jiro_path(@jiro)
-    rescue StandardError
+    rescue ActiveRecord::RecordInvalid
       render :show
     end
   end
