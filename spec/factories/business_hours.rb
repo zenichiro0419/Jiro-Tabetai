@@ -14,10 +14,15 @@
 #
 FactoryBot.define do
   factory :business_hour do
-    jiro_id { 1 }
-    wday { 1 }
-    category { 'MyString' }
-    start_at { 'MyString' }
-    end_at { 'MyString' }
+    (0..6).each do |wday|
+      (1..2).each do |category|
+        jiro_id { 1 }
+        wday { wday }
+        is_holiday { false }
+        category { category }
+        start_at { '11:00' }
+        end_at { '15:00' }
+      end
+    end
   end
 end
