@@ -51,7 +51,7 @@ class JirosController < ApplicationController
   def update
     @jiro = Jiro.find_by_id(params[:id])
     # TODO: Header作成時にflashを埋め込む。
-    if @jiro.update_attributes(params_int(update_jiro_params))
+    if @jiro.update(params_int(update_jiro_params))
       # flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
     else
