@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: menus
+# Table name: menu_items
 #
 #  id              :bigint           not null, primary key
 #  is_main         :boolean
