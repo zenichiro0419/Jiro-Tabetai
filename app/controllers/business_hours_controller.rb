@@ -30,7 +30,7 @@ class BusinessHoursController < ApplicationController
   end
 
   def business_hours_params(business_hour_id)
-    params.require(:business_hour).require(:business_hour).require(business_hour_id.to_s)
-          .permit(:wday, :is_holiday, :category, :start_at, :end_at).merge(jiro_id: params[:jiro_id])
+    params[:business_hour][:business_hour][business_hour_id.to_s].permit(:wday, :is_holiday, :category, :start_at,
+                                                                         :end_at).merge(jiro_id: params[:jiro_id])
   end
 end
