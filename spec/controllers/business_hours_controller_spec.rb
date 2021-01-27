@@ -14,7 +14,7 @@ RSpec.describe BusinessHoursController, type: :controller do
     end
   end
 
-  xdescribe '#update' do
+  describe '#update' do
     before do
       patch :update,
             params: {
@@ -26,7 +26,8 @@ RSpec.describe BusinessHoursController, type: :controller do
               }
             }
     end
-    # TODO: trueのままになる
-    it { expect(business_hour.is_holiday).to eq(false) }
+    it { expect(business_hour.reload.is_holiday).to eq(open_sunday_lunch[:is_holiday]) }
+    it { expect(business_hour.reload.start_at).to eq(open_sunday_lunch[:start_at]) }
+    it { expect(business_hour.reload.end_at).to eq(open_sunday_lunch[:end_at]) }
   end
 end

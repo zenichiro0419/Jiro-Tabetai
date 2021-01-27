@@ -15,9 +15,6 @@
 FactoryBot.define do
   factory :business_hour do
     jiro_id { 1 }
-    is_holiday { true }
-    start_at { '11:00' }
-    end_at { '15:00' }
 
     trait :sunday do
       wday { 0 }
