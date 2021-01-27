@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe FacilitiesController, type: :controller do
+  let!(:jiro) { FactoryBot.create(:jiro) }
+  let!(:facility) { FactoryBot.create(:facility, jiro_id: jiro.id) }
+
   describe '#edit' do
-    let(:jiro) { FactoryBot.create(:jiro) }
-    let(:facility) { Facility.create(:facility) }
     context 'hoge' do
       before { get :edit, params: {jiro_id: jiro.id} }
       it { expect(response.status).to eq(200) }
@@ -14,9 +15,6 @@ RSpec.describe FacilitiesController, type: :controller do
   end
 
   describe '#update' do
-    let!(:jiro) { FactoryBot.create(:jiro) }
-    let!(:facility) { FactoryBot.create(:facility, jiro_id: jiro.id) }
-
     context 'valid update' do
       before do
         patch :update, params: {
