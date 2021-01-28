@@ -22,19 +22,19 @@
 #
 FactoryBot.define do
   factory :facility do
-    jiro_id { 1 }
-    is_renge { false }
-    is_tissue { false }
-    is_apron { false }
-    is_water_server { false }
-    is_trash_box { false }
-    is_vending_machine { false }
+    in_store_pending { 6 }
+    is_apron { true }
     is_hair_tie { false }
-    in_store_pending { 1 }
-    seasoning1 { "MyString" }
-    seasoning2 { "MyString" }
-    seasoning3 { "MyString" }
-    seasoning4 { "MyString" }
-    seasoning5 { "MyString" }
+    is_renge  { true }
+    is_tissue { false }
+    is_trash_box { true }
+    is_vending_machine { true }
+    is_water_server { false }
+    seasoning1 { 1 }
+    seasoning2 { 2 }
+    seasoning3 { 3 }
+    seasoning4 { 4 }
+    seasoning5 { 5 }
+    jiro_id { 1 }
   end
 end
