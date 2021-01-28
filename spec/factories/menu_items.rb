@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: menus
+# Table name: menu_items
 #
 #  id              :bigint           not null, primary key
 #  is_main         :boolean
@@ -20,18 +20,27 @@
 #  jiro_id         :integer
 #
 FactoryBot.define do
-  factory :menu do
-    name { "MyString" }
+  factory :menu_item do
     jiro_id { 1 }
-    price { 1 }
-    is_main { false }
-    noodle_quantity { 1 }
-    note { "MyText" }
-    topping1 { "MyString" }
-    topping2 { "MyString" }
-    topping3 { "MyString" }
-    topping4 { "MyString" }
-    topping5 { "MyString" }
-    topping6 { "MyString" }
+    price { 1000 }
+
+    trait :main_menu do
+      name { '豚ラーメン' }
+      is_main { true }
+      noodle_quantity { 300 }
+      note { 'マシマシ禁止' }
+      topping1 { 'ヤサイ' }
+      topping2 { 'アブラ' }
+      topping3 { 'カラアゲ' }
+      topping4 { 'ガリマヨ' }
+      topping5 { 'ニンニク' }
+      topping6 { 'ショウガ' }
+      topping7 { 'カラタマ' }
+    end
+
+    trait :option_menu do
+      name { '生卵' }
+      is_main { false }
+    end
   end
 end

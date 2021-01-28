@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: menus
+# Table name: menu_items
 #
 #  id              :bigint           not null, primary key
 #  is_main         :boolean
@@ -19,8 +19,9 @@
 #  updated_at      :datetime         not null
 #  jiro_id         :integer
 #
-require 'rails_helper'
+class MenuItem < ApplicationRecord
+  belongs_to :jiro
 
-RSpec.describe Menu, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  scope :main_menu, -> { where(is_main: true) }
+  scope :option_menu, -> { where(is_main: false) }
 end

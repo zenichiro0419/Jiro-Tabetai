@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_095346) do
+ActiveRecord::Schema.define(version: 2021_01_21_122924) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_095346) do
     t.string "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_holiday", default: false
   end
 
   create_table "facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_095346) do
     t.integer "payment_method"
     t.integer "how_to_order"
     t.integer "call_timing"
-    t.boolean "is_renge"
     t.text "information"
     t.boolean "is_closed"
     t.integer "registered_jirolian_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_095346) do
     t.boolean "is_parking_area"
   end
 
-  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "menu_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "jiro_id"
     t.integer "price"

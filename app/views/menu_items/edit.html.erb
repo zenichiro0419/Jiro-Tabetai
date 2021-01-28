@@ -1,0 +1,83 @@
+<H3>メニュー</H3>
+
+<H4>メインメニュー</H4>
+<%= form_with(model: @main_menu_items, url: update_main_menu_jiro_menu_items_path, method: :patch, local: true) do |form| %>
+  <table>
+  <% @main_menu_items.each do |main_menu_item| %>
+    <%= form.fields_for("main_menu_item[]", main_menu_item) do |m| %>
+      <tr>
+        <td>
+          <%= m.label :name, "メニュー名" %>
+          <%= m.text_field(:name) %>
+        </td>
+        <td>
+          <%= m.label :price, "値段" %>
+          <%= m.text_field(:price) %>
+        </td>
+        <td>
+          <%= m.label :noodle_quantity, "麺量" %>
+          <%= m.text_field(:noodle_quantity) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= m.label :topping1, "トッピング①" %>
+          <%= m.text_field(:topping1) %>
+        </td>
+        <td>
+          <%= m.label :topping2, "トッピング②" %>
+          <%= m.text_field(:topping2) %>
+        </td>
+        <td>
+          <%= m.label :topping3, "トッピング③" %>
+          <%= m.text_field(:topping3) %>
+        </td>
+        <td>
+          <%= m.label :topping4, "トッピング④" %>
+          <%= m.text_field(:topping4) %>
+        </td>
+        <td>
+          <%= m.label :topping5, "トッピング⑤" %>
+          <%= m.text_field(:topping5) %>
+        </td>
+        <td>
+          <%= m.label :topping6, "トッピング⑥" %>
+          <%= m.text_field(:topping6) %>
+        </td>
+        <td>
+          <%= m.label :topping7, "トッピング⑦" %>
+          <%= m.text_field(:topping7) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= m.label :note, "備考" %>
+          <%= m.text_area(:note) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <%= form.submit "登録" %>
+<% end %>
+
+<H4>オプションメニュー</H4>
+<%= form_with(model: @option_menu_items, url:  update_option_menu_jiro_menu_items_path, method: :patch, local: true) do |form| %>
+  <table>
+  <% @option_menu_items.each do |option_menu_item| %>
+    <%= form.fields_for("option_menu_item[]", option_menu_item) do |o| %>
+      <tr>
+        <td>
+          <%= o.label :name, "メニュー名" %>
+          <%= o.text_field(:name) %>
+        </td>
+        <td>
+          <%= o.label :price, "値段" %>
+          <%= o.text_field(:price) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <%= form.submit "登録" %>
+<% end %>

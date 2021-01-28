@@ -57,6 +57,7 @@
     <% else %>
       <% @main_menus.each do |main_menu| %>
         <table class="table">
+        <% if main_menu.name.present? %>
           <tr><th>名称：</th>
             <td><%= main_menu.name %></td></tr>
           <tr><th>価格：</th>
@@ -68,6 +69,7 @@
           <tr><th>備考：</th>
             <td><%= main_menu.note %></td></tr>
           </tr><br>
+        <% end %>  
         </table>
       <% end %>
     <% end %>
@@ -75,13 +77,15 @@
     <h2>オプションメニュー</h2>
       <% if @option_menus.blank? %>
         <%= '未設定' %>
-      <% else %>  
+      <% else %>
         <% @option_menus.each do |option_menu| %>
-          <table class='option-menu-table'>
-            <tr>
-              <th><%= option_menu.name %></th>
-              <td><%= "#{option_menu.price}円" %></td>
-            </tr>
+          <table class='table'>
+            <% if option_menu.name.present? %>
+              <tr>
+                <th><%= option_menu.name %></th>
+                <td><%= "#{option_menu.price}円" %></td>
+              </tr>
+            <% end %>  
           </table>
         <% end %>
       <% end %>
@@ -92,8 +96,13 @@
     <h2>営業時間</h2>
       <table class="table">
         <% (0..6).each do |wday| %>
-          <tr><th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
-            <td><%= show_business_hour(@business_hours_list, wday) if @business_hour_list.present? %></td></tr>
+          <tr>
+            <th><%= "#{%w[日 月 火 水 木 金 土][wday]}曜日" %></th>
+            <% if @business_hour_wdays_list[wday] %>
+              <% @business_hour_wdays_list[wday].each do |open_status|%>
+                <td><%= show_business_hour(open_status) %></td>
+              <% end %>
+            <% end %>    
           </tr>
         <% end %>
       </table>

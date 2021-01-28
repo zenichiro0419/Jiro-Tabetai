@@ -5,14 +5,59 @@ class JirosController < ApplicationController
     @jiro = Jiro.find_by_id(params[:id])
 
     @facility = @jiro.facility
-    @table_seasonings = create_table_seasonings_list(@facility)
+    @table_seasonings = create_table_seasonings_list(@facility) if @facility
 
-    @main_menus = @jiro.menu.main_menu
+    @main_menus = @jiro.menu_item.main_menu
     @toppings_list = create_toppings_list(@main_menus)
-    @option_menus = @jiro.menu.option_menu
+    @option_menus = @jiro.menu_item.option_menu
 
-    business_hours = @jiro.business_hour
-    @business_hours_list = create_business_hours_list(business_hours)
+    @business_hour_wdays_list = @jiro.business_hour.group_by(&:wday)
+  end
+
+  def new
+    @jiro = Jiro.new
+  end
+
+  def create
+    ActiveRecord::Base.transaction do
+      @jiro = Jiro.create!(params_int(create_jiro_params))
+    end
+    Facility.create(jiro_id: @jiro.id)
+
+    business_hours = []
+    (0..6).each do |wday|
+      (1..2).each do |category|
+        business_hours << BusinessHour.new(wday: wday, category: category, jiro_id: @jiro.id)
+      end
+    end
+    BusinessHour.import(business_hours)
+
+    menu_items = []
+    6.times do
+      menu_items << MenuItem.new(is_main: true, jiro_id: @jiro.id)
+      menu_items << MenuItem.new(is_main: false, jiro_id: @jiro.id)
+    end
+    MenuItem.import(menu_items)
+
+    redirect_to jiro_path(@jiro)
+  rescue StandardError => e
+    render action: :new
+  end
+
+  def edit
+    @jiro = Jiro.find_by_id(params[:id])
+  end
+
+  def update
+    @jiro = Jiro.find_by_id(params[:id])
+    # TODO: Header作成時にflashを埋め込む。
+    if @jiro.update(params_int(update_jiro_params))
+      # flash.notice = '更新が完了しました。'
+      redirect_to jiro_path(@jiro)
+    else
+      # flash.notice = '更新に失敗しました。'
+      render action: :edit
+    end
   end
 
   private
@@ -36,20 +81,13 @@ class JirosController < ApplicationController
     toppings_list
   end
 
-  # @params [Hash] business_hours
-  # @return [Hash] business_hour_list => [integer] key, [Hash] value
-  def create_business_hours_list(business_hours)
-    business_hours_list = {}
-    business_hours_wday_hash = business_hours.group_by(&:wday)
-    (0..6).each do |wday|
-      jiro_open_list = {}
-      break if business_hours_wday_hash[wday].nil?
+  def create_jiro_params
+    params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
+                                 :payment_method, :how_to_order, :call_timing)
+  end
 
-      business_hours_wday_hash[wday].each do |business_hour|
-        jiro_open_list.store(business_hour.category, [business_hour.start_at, business_hour.end_at])
-      end
-      business_hours_list.store(wday, jiro_open_list)
-    end
-    business_hours_list
+  def update_jiro_params
+    params.permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count, :payment_method,
+                  :how_to_order, :call_timing)
   end
 end
