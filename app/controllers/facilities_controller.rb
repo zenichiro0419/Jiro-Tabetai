@@ -7,7 +7,7 @@ class FacilitiesController < ApplicationController
     @jiro = Jiro.find_by_id(params[:jiro_id])
     @facility = @jiro.facility
     # TODO: Header作成時にflashを埋め込む。
-    if @facility.update_attributes(facility_params)
+    if @facility.update(facility_params)
       flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
     else
@@ -19,8 +19,8 @@ class FacilitiesController < ApplicationController
   private
 
   def facility_params
-    params.require(:facility).permit(:jiro_id, :is_renge, :is_tissue, :is_apron, :is_water_server, :is_trash_box,
-                                     :is_vending_machine, :is_hair_tie, :in_store_pending, :seasoning1, :seasoning2,
-                                     :seasoning3, :seasoning4, :seasoning5).merge(jiro_id: @jiro.id)
+    params.permit(:jiro_id, :is_renge, :is_tissue, :is_apron, :is_water_server, :is_trash_box,
+                  :is_vending_machine, :is_hair_tie, :in_store_pending, :seasoning1, :seasoning2,
+                  :seasoning3, :seasoning4, :seasoning5).merge(jiro_id: @jiro.id)
   end
 end

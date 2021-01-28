@@ -67,13 +67,11 @@ class MenuItemsController < ApplicationController
   end
 
   def main_menu_items_params(menu_item_id)
-    params.require(:menu_item).require(:main_menu_item).require(menu_item_id.to_s)
-          .permit(:name, :price, :noodle_quantity, :note, :topping1, :topping2, :topping3,
-                  :topping4, :topping5, :topping6, :topping7).merge(jiro_id: params[:jiro_id])
+    params[:menu_item][:main_menu_item][menu_item_id.to_s].permit(:name, :price, :noodle_quantity, :note, :topping1, :topping2, :topping3,
+                                                                  :topping4, :topping5, :topping6, :topping7).merge(jiro_id: params[:jiro_id])
   end
 
   def option_menu_items_params(menu_item_id)
-    params.require(:menu_item).require(:option_menu_item).require(menu_item_id.to_s)
-          .permit(:name, :price).merge(jiro_id: params[:jiro_id])
+    params[:menu_item][:option_menu_item][menu_item_id.to_s].permit(:name, :price).merge(jiro_id: params[:jiro_id])
   end
 end

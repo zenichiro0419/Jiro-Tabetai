@@ -5,7 +5,7 @@ class JirosController < ApplicationController
     @jiro = Jiro.find_by_id(params[:id])
 
     @facility = @jiro.facility
-    @table_seasonings = create_table_seasonings_list(@facility)
+    @table_seasonings = create_table_seasonings_list(@facility) if @facility
 
     @main_menus = @jiro.menu_item.main_menu
     @toppings_list = create_toppings_list(@main_menus)
@@ -20,28 +20,28 @@ class JirosController < ApplicationController
 
   def create
     ActiveRecord::Base.transaction do
-      @jiro = Jiro.create(params_int(jiro_params))
-      Facility.create(jiro_id: @jiro.id)
-
-      business_hours = []
-      (0..6).each do |wday|
-        (1..2).each do |category|
-          business_hours << BusinessHour.new(wday: wday, category: category, jiro_id: @jiro.id)
-        end
-      end
-      BusinessHour.import(business_hours)
-
-      menu_items = []
-      6.times do
-        menu_items << MenuItem.new(is_main: true, jiro_id: @jiro.id)
-        menu_items << MenuItem.new(is_main: false, jiro_id: @jiro.id)
-      end
-      MenuItem.import(menu_items)
-    rescue ActiveRecord::RecordInvalid
-      # 具体的な処理はあとで考える
-      render :show
+      @jiro = Jiro.create!(params_int(create_jiro_params))
     end
+    Facility.create(jiro_id: @jiro.id)
+
+    business_hours = []
+    (0..6).each do |wday|
+      (1..2).each do |category|
+        business_hours << BusinessHour.new(wday: wday, category: category, jiro_id: @jiro.id)
+      end
+    end
+    BusinessHour.import(business_hours)
+
+    menu_items = []
+    6.times do
+      menu_items << MenuItem.new(is_main: true, jiro_id: @jiro.id)
+      menu_items << MenuItem.new(is_main: false, jiro_id: @jiro.id)
+    end
+    MenuItem.import(menu_items)
+
     redirect_to jiro_path(@jiro)
+  rescue StandardError => e
+    render action: :new
   end
 
   def edit
@@ -51,11 +51,11 @@ class JirosController < ApplicationController
   def update
     @jiro = Jiro.find_by_id(params[:id])
     # TODO: Header作成時にflashを埋め込む。
-    if @jiro.update_attributes(params_int(jiro_params))
-      flash.notice = '更新が完了しました。'
+    if @jiro.update(params_int(update_jiro_params))
+      # flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
     else
-      flash.notice = '更新に失敗しました。'
+      # flash.notice = '更新に失敗しました。'
       render action: :edit
     end
   end
@@ -81,8 +81,13 @@ class JirosController < ApplicationController
     toppings_list
   end
 
-  def jiro_params
+  def create_jiro_params
     params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
                                  :payment_method, :how_to_order, :call_timing)
+  end
+
+  def update_jiro_params
+    params.permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count, :payment_method,
+                  :how_to_order, :call_timing)
   end
 end

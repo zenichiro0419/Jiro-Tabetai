@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: menus
+# Table name: menu_items
 #
 #  id              :bigint           not null, primary key
 #  is_main         :boolean
@@ -19,8 +19,28 @@
 #  updated_at      :datetime         not null
 #  jiro_id         :integer
 #
-require 'rails_helper'
+FactoryBot.define do
+  factory :menu_item do
+    jiro_id { 1 }
+    price { 1000 }
 
-RSpec.describe Menu, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    trait :main_menu do
+      name { '豚ラーメン' }
+      is_main { true }
+      noodle_quantity { 300 }
+      note { 'マシマシ禁止' }
+      topping1 { 'ヤサイ' }
+      topping2 { 'アブラ' }
+      topping3 { 'カラアゲ' }
+      topping4 { 'ガリマヨ' }
+      topping5 { 'ニンニク' }
+      topping6 { 'ショウガ' }
+      topping7 { 'カラタマ' }
+    end
+
+    trait :option_menu do
+      name { '生卵' }
+      is_main { false }
+    end
+  end
 end

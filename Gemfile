@@ -29,12 +29,15 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Setup RSpec
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'factory_bot_rails', '~> 4.11'
+  gem 'rails-controller-testing'
   # Setup enum_help
   gem 'enum_help'
   # Setup activerecord-import for bulk insert & update
   gem "activerecord-import"
+  # For debug
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -47,8 +50,6 @@ group :development do
   # For error handling
   gem 'better_errors'
   gem 'binding_of_caller'
-  # For debug
-  gem 'pry-byebug'
   # For Ruby formatter: RuboCop
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
