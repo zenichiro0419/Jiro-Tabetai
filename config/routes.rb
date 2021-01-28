@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :jirolians
+
+  root 'top#index'
   resources :jiros, except: [:destroy] do
     resource :business_hours, only: [:edit, :update]
     resource :facilities, only: [:edit, :update]
@@ -9,4 +12,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :jirolians, only: [:show]
 end

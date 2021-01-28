@@ -38,6 +38,9 @@ group :development, :test do
   gem "activerecord-import"
   # For debug
   gem 'pry-byebug'
+  # Setup Devise for login & signup function
+  gem 'devise'
+  gem 'omniauth-twitter'
 end
 
 group :development do
