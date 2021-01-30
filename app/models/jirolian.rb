@@ -45,4 +45,6 @@ class Jirolian < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, omniauth_providers: [:twitter]
+
+  enum gender: {male: 0, female: 1, unanswered: 2}
 end
