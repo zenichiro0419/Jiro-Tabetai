@@ -41,6 +41,14 @@
 #
 FactoryBot.define do
   factory :jirolian do
-    
+    email { 'jiro@example.com' }
+    encrypted_password { 'jirojiro' }
+    username { 'user' }
+    sex { 0 }
+    home_jiro { 'jiro' }
+    birth_date { '1991-04-19 00:00:00' }
+    hp_url { 'https://twitter.com/home' }
+    introduction { 'いつもマシマシ' }
+    approved_favorited { true }
   end
 end
