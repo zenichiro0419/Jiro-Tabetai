@@ -47,4 +47,6 @@ class Jirolian < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, omniauth_providers: [:twitter]
 
   enum gender: {male: 0, female: 1, unanswered: 2}
+
+  validates :username, presence: true
 end
