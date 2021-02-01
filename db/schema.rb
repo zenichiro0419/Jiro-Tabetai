@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_163807) do
+ActiveRecord::Schema.define(version: 2021_01_30_144917) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(version: 2021_01_28_163807) do
     t.string "provider"
     t.string "uid"
     t.string "username"
+    t.integer "sex"
+    t.datetime "birth_date"
+    t.string "home_jiro"
+    t.text "introduction"
+    t.string "hp_url"
+    t.boolean "approved_favorited"
     t.index ["confirmation_token"], name: "index_jirolians_on_confirmation_token", unique: true
     t.index ["email"], name: "index_jirolians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_jirolians_on_reset_password_token", unique: true

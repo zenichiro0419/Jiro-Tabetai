@@ -1,0 +1,42 @@
+<%= form_with(model: @jirolian, url: jirolian_path, local: true) do |f| %>
+  <table class="form-table">
+    <tr>
+      <th><%= f.label :username, "ユーザーネーム" %></th>
+      <td><%= f.text_field(:username, class: "username", size: 30) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :sex, "ご性別" %></th>
+      <td>
+        <label><%= f.radio_button(:sex, 0, class: "sex") %>男性</label>
+        <label><%= f.radio_button(:sex, 1, class: "sex") %>女性</label>
+        <label><%= f.radio_button(:sex, 2, class: "sex") %>未回答</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :birth_date, "生年月日" %></th>
+      <td><%= f.date_select(:birth_date, class: "birth_date", use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)) %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :home_jiro, "ホームジロウ" %></th>
+      <td><%= f.text_field(:home_jiro, class: "home_jiro", size: 30) %></td>
+    </tr>    
+    <tr>
+      <th><%= f.label :introduction, "自己紹介" %></th>
+      <td><%= f.text_field(:introduction, class: "introduction", size: "40*50", placeholder: 'いつもヤサイマシマシをモットーにしています。') %></td>
+    </tr>
+      <th><%= f.label :hp_url, "HP/SNS" %></th>
+      <td><%= f.url_field(:hp_url, class: "hp_sns", placeholder: 'https://twitter.com/○○○')%></td>
+    </tr>
+      <th><%= f.label :approved_favorited, "お気に入られ" %></th>
+      <td>
+        <label><%= f.radio_button(:approved_favorited, true, class: "approved_favorited") %>許可する</label>
+        <label><%= f.radio_button(:approved_favorited, false, class: "approved_favorited") %>許可しない</label>
+        <p>※「許可する」では他ユーザーからの「お気に入り」を許可します。</p>
+        <p>※「許可しない」に更新すると現在のお気に入られがすべて解除されます。</p>
+      </td>
+    </tr>
+    </table>
+    <%= f.submit "更新" %>
+<% end %>
+

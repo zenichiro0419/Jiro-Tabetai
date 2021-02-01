@@ -25,11 +25,8 @@ RSpec.describe FacilitiesController, type: :controller do
           seasoning1: 'お酢'
         }
       end
-      it { expect(facility.reload.is_apron).not_to eq(true) }
       it { expect(facility.reload.is_apron).to eq(false) }
-      it { expect(facility.reload.in_store_pending).not_to eq(6) }
       it { expect(facility.reload.in_store_pending).to eq(3) }
-      it { expect(facility.reload.seasoning1).not_to eq('カエシ醤油') }
       it { expect(facility.reload.seasoning1).to eq('お酢') }
       it { expect(response.status).to eq(302) }
       it { expect(response.status).to redirect_to(assigns(:jiro)) }

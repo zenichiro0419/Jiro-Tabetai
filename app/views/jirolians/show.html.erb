@@ -1,2 +1,9 @@
-<h1>Jirolians#show</h1>
-<p>Find me in app/views/jirolians/show.html.erb</p>
+  <h2><%= current_jirolian.username %></h2>
+    <table class="table">
+      <tr><th>ホーム：</th>
+        <td><%= current_jirolian.home_jiro %></td></tr>
+      <tr><th>自己紹介：</th>
+        <td><%= current_jirolian.introduction %></td></tr>
+      <tr><th>HP/SNS：</th>
+        <td><%= current_jirolian.hp_url %></td></tr>
+    </table>

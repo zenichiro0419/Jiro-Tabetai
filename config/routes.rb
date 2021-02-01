@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :jirolians, only: [:show]
+  resources :jirolians, only: [:show, :edit, :update]
 end
