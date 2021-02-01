@@ -42,6 +42,10 @@
 FactoryBot.define do
   factory :jirolian do
     email { 'jiro@example.com' }
+    password { 'asdfghj' }
+    confirmation_sent_at { '2020-04-18 00:00:00' }
+    confirmation_token { 'asdfghjk' }
+    confirmed_at { '2020-04-19 00:00:00' }
     encrypted_password { 'jirojiro' }
     username { 'user' }
     sex { 0 }
