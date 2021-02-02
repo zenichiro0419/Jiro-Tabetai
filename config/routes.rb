@@ -11,7 +11,10 @@ Rails.application.routes.draw do
         patch 'update_option_menu'
       end
     end
+    resources :posts, only: [:index, :new, :create]
   end
 
-  resources :jirolians, only: [:show, :edit, :update]
+  resources :jirolians, only: [:show, :edit, :update] do
+    resources :posts, only: [:show]
+  end
 end
