@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_jirolian!, only: [:new, :create, :destroy]
 
+  def index
+    @posts = Post.all.order(created_at: :DESC)
+  end
+
   def show
     @posts = Post.where(jirolian_id: params[:jirolian_id])
   end

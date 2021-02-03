@@ -1,3 +1,9 @@
-<% @posts.each do |post| %>
-  <%= post.content %>
-<% end %>
+
+  <% @posts.each do |post| %>
+    <p><%= Jirolian.find(post.jirolian_id).username %></p> 
+    <p><%= Jiro.find(post.jiro_id).name %></p> 
+    <p><%= post.content %></p>
+    <p><%= post.called %></p>
+    <br>
+  <% end %>
+
