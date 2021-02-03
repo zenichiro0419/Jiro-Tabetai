@@ -259,6 +259,53 @@ BusinessHour.create!(
   ]
 )
 
+# Jirolian
+jirolians =
+  [
+    {
+      username: 'ichiro',
+      email: 'zenichiro@gmail.com',
+      gender: 1,
+      home_jiro: '千里眼',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'ヤサイマシ必須です。',
+      approved_favorited: true,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'asdfghjk',
+      confirmed_at: '2020-04-19 00:00:00'
+    },
+    {
+      username: 'jiro',
+      email: 'zenichiro.ishikawa@gmail.com',
+      gender: 2,
+      home_jiro: '用心棒',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'アブラマシ必須です。',
+      approved_favorited: false,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'zxcvbnm',
+      confirmed_at: '2020-04-19 00:00:00'
+    },
+    {
+      username: 'sabuiro',
+      email: 'z.ishikawa@toreta.in',
+      gender: 1,
+      home_jiro: '鷹の目',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'カラメ必須です。',
+      approved_favorited: true,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'qwertyuio',
+      confirmed_at: '2020-04-19 00:00:00'
+    }
+  ]
+jirolians.each do |record|
+  Jirolian.create!(record) unless Jirolian.find_by(email: record[:email])
+end
+
 # Post
 Post.create!(
   [
