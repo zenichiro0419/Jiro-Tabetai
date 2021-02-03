@@ -1,7 +1,13 @@
 class JiroliansController < ApplicationController
-  before_action :authenticate_jirolian!
+  before_action :authenticate_jirolian!, except: [:show]
 
-  def show; end
+  def mypage
+    redirect_to jirolian_path(current_jirolian)
+  end
+
+  def show
+    @jirolian = Jirolian.find_by_id(params[:id])
+  end
 
   def edit
     @jirolian = Jirolian.find_by_id(current_jirolian.id)
@@ -21,7 +27,7 @@ class JiroliansController < ApplicationController
   private
 
   def jirolian_params
-    params[:jirolian].permit(:username, :sex, :birth_date, :home_jiro, :introduction, :hp_url,
+    params[:jirolian].permit(:username, :gender, :birth_date, :home_jiro, :introduction, :hp_url,
                              :approved_favorited)
   end
 end
