@@ -13,6 +13,7 @@
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  failed_attempts        :integer          default(0), not null
+#  gender                 :integer
 #  home_jiro              :string(255)
 #  hp_url                 :string(255)
 #  introduction           :text(65535)
@@ -23,7 +24,6 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
-#  sex                    :integer
 #  sign_in_count          :integer          default(0), not null
 #  uid                    :string(255)
 #  unconfirmed_email      :string(255)

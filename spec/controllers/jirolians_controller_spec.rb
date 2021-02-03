@@ -28,7 +28,7 @@ RSpec.describe JiroliansController, type: :controller do
                 id: jirolian.id,
                 jirolian: {
                   username: 'jiro',
-                  sex: 1,
+                  gender: 1,
                   birth_date: '1992-05-20 00:00:00',
                   home_jiro: '千里眼',
                   introduction: 'マシマシが必須です。',
@@ -38,7 +38,7 @@ RSpec.describe JiroliansController, type: :controller do
               }
       end
       it { expect(jirolian.reload.username).to eq('jiro') }
-      it { expect(jirolian.reload.sex).to eq(1) }
+      it { expect(jirolian.reload.gender).to eq(1) }
       it { expect(jirolian.reload.birth_date).to eq('1992-05-20 00:00:00') }
       it { expect(jirolian.reload.home_jiro).to eq('千里眼') }
       it { expect(jirolian.reload.introduction).to eq('マシマシが必須です。') }
@@ -55,7 +55,7 @@ RSpec.describe JiroliansController, type: :controller do
               id: jirolian.id,
               jirolian: {
                 username: nil,
-                sex: 1,
+                gender: 1,
                 birth_date: '1992-05-20 00:00:00',
                 home_jiro: '千里眼',
                 introduction: 'マシマシが必須です。',
@@ -66,7 +66,7 @@ RSpec.describe JiroliansController, type: :controller do
     end
     it { expect(jirolian.reload.username).to eq(jirolian.username) }
     it { expect(jirolian.reload.username).not_to eq(nil) }
-    it { expect(jirolian.reload.sex).to eq(jirolian.sex) }
+    it { expect(jirolian.reload.gender).to eq(jirolian.gender) }
     it { expect(jirolian.reload.birth_date).to eq(jirolian.birth_date) }
     it { expect(jirolian.reload.home_jiro).to eq(jirolian.home_jiro) }
     it { expect(jirolian.reload.introduction).to eq(jirolian.introduction) }
