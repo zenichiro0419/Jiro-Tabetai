@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
-  get '/mypage' => 'jirolians#mypage'
-
-  resource :posts, only: [:index]
+  # get '/mypage' => 'jirolians#mypage'
+  get '/posts' => 'posts#index'
 
   resources :jiros, except: [:destroy] do
     resource :business_hours, only: [:edit, :update]
@@ -19,7 +18,12 @@ Rails.application.routes.draw do
     resource :posts, only: [:new, :create]
   end
 
-  resources :jirolians, only: [:show] do
-    resources :posts, only: [:show]
-  end
+  # resources :jirolians, only: [:show] do
+  #   resources :posts, only: [:show]
+  # end
+
+  get '/jirolians/mypage' => 'jirolians#mypage'
+  get '/jirolians/:username' => 'jirolians#show'
+  get '/jirolians/:username/edit' => 'jirolians#edit'
+  patch '/jirolians/:username' => 'jirolians#update'
 end

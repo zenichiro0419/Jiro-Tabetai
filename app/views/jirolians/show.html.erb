@@ -1,9 +1,19 @@
-  <h2><%= @jirolian.username %></h2>
-    <table class="table">
-      <tr><th>ホーム：</th>
-        <td><%= @jirolian.home_jiro %></td></tr>
-      <tr><th>自己紹介：</th>
-        <td><%= @jirolian.introduction %></td></tr>
-      <tr><th>HP/SNS：</th>
-        <td><%= @jirolian.hp_url %></td></tr>
-    </table>
+<% if jirolian_signed_in? && @jirolian == current_jirolian %>
+  <h1>マイページ</h1>
+<% else %>
+  <h1>ユーザーページ</h1>
+<% end %>
+
+<h2><%= @jirolian.username %></h2>
+  <table class="table">
+    <tr><th>ホーム：</th>
+      <td><%= @jirolian.home_jiro %></td></tr>
+    <tr><th>自己紹介：</th>
+      <td><%= @jirolian.introduction %></td></tr>
+    <tr><th>HP/SNS：</th>
+      <td><%= @jirolian.hp_url %></td></tr>
+  </table>
+
+<% if jirolian_signed_in? && @jirolian == current_jirolian %>
+  <div><%= button_to "編集", "/jirolians/#{current_jirolian.username}/edit", method: :get %></div>
+<% end %>

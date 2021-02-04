@@ -1,4 +1,4 @@
-<%= form_with(model: @jirolian, url: jirolian_path, local: true) do |f| %>
+<%= form_with(model: @jirolian, url: "/jirolians/#{@jirolian.username}", local: true) do |f| %>
   <table class="form-table">
     <tr>
       <th><%= f.label :username, "ユーザーネーム" %></th>
@@ -7,9 +7,9 @@
     <tr>
       <th><%= f.label :gender, "ご性別" %></th>
       <td>
-        <label><%= f.radio_button(:gender, 0, class: "gender") %>男性</label>
-        <label><%= f.radio_button(:gender, 1, class: "gender") %>女性</label>
-        <label><%= f.radio_button(:gender, 2, class: "gender") %>未回答</label>
+        <label><%= f.radio_button(:gender, Jirolian.genders.keys[0], class: "gender") %>男性</label>
+        <label><%= f.radio_button(:gender, Jirolian.genders.keys[1], class: "gender") %>女性</label>
+        <label><%= f.radio_button(:gender, Jirolian.genders.keys[2], class: "gender") %>未回答</label>
       </td>
     </tr>
     <tr>

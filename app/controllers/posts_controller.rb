@@ -5,9 +5,9 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :DESC)
   end
 
-  def show
-    @posts = Post.where(jirolian_id: params[:jirolian_id])
-  end
+  # def show
+  #   @posts = Post.where(jirolian_id: params[:jirolian_id])
+  # end
 
   def new
     @post = Post.new
