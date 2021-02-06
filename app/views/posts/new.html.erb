@@ -1,0 +1,46 @@
+<%= form_with(model: @post, url: jiro_posts_path, local: true) do |f| %>
+  <table class="table">
+  <tr>
+    <th><%= f.label :content %></th>
+    <td><%= f.text_area(:content, class: "content", size: "40*50") %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :called, "トッピング" %></th>
+    <td><%= f.text_field(:called, class: "called", placeholder: '例：ヤサイマシアブラカラメ') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :noodle, "メン" %></th>
+    <td>
+      <label><%= f.radio_button(:noodle, 0, class: "noodle") %>デロ</label>
+      <label><%= f.radio_button(:noodle, 1, class: "noodle") %>ややデロ</label>
+      <label><%= f.radio_button(:noodle, 2, class: "noodle") %>やや固</label>
+      <label><%= f.radio_button(:noodle, 3, class: "noodle") %>バキボキ</label>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label :soup, "スープ" %></th>
+    <td>
+      <label><%= f.radio_button(:soup, 0, class: "soup") %>非乳化</label>
+      <label><%= f.radio_button(:soup, 1, class: "soup") %>微乳化</label>
+      <label><%= f.radio_button(:soup, 2, class: "soup") %>乳化</label>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label :boiled_vegetable, "ヤサイ" %></th>
+    <td>
+      <label><%= f.radio_button(:boiled_vegetable, 0, class: "boiled_vegetable") %>クタ</label>
+      <label><%= f.radio_button(:boiled_vegetable, 1, class: "boiled_vegetable") %>シャキ</label>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.label :roasted_pork, "ブタ" %></th>
+    <td>
+      <label><%= f.radio_button(:roasted_pork, 0, class: "roasted_pork") %>パサ</label>
+      <label><%= f.radio_button(:roasted_pork, 1, class: "roasted_pork") %>ホロ</label>
+      <label><%= f.radio_button(:roasted_pork, 2, class: "roasted_pork") %>ブリンブリン</label>
+    </td>
+  </tr>
+  <td><%= f.hidden_field(:jirolian_id, :value => current_jirolian.id)%></td>
+  </table>
+  <%= f.submit "登録" %>
+<% end %>

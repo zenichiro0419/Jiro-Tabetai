@@ -258,3 +258,146 @@ BusinessHour.create!(
     }
   ]
 )
+
+# Jirolian
+jirolians =
+  [
+    {
+      username: 'ichiro',
+      email: 'zenichiro@gmail.com',
+      gender: 1,
+      home_jiro: '千里眼',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'ヤサイマシ必須です。',
+      approved_favorited: true,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'asdfghjk',
+      confirmed_at: '2020-04-19 00:00:00'
+    },
+    {
+      username: 'jiro',
+      email: 'zenichiro.ishikawa@gmail.com',
+      gender: 2,
+      home_jiro: '用心棒',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'アブラマシ必須です。',
+      approved_favorited: false,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'zxcvbnm',
+      confirmed_at: '2020-04-19 00:00:00'
+    },
+    {
+      username: 'sabuiro',
+      email: 'z.ishikawa@toreta.in',
+      gender: 1,
+      home_jiro: '鷹の目',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'カラメ必須です。',
+      approved_favorited: true,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'qwertyuio',
+      confirmed_at: '2020-04-19 00:00:00'
+    }
+  ]
+jirolians.each do |record|
+  Jirolian.create!(record) unless Jirolian.find_by(email: record[:email])
+end
+
+# Post
+Post.create!(
+  [
+    {
+      jirolian_id: 1,
+      jiro_id: 1,
+      content: 'ほげほげほげほげ',
+      soup: 1,
+      noodle: 1,
+      boiled_vegetable: 1,
+      roasted_pork: 1,
+      called: 'ヤサイマシマシアブラマシマシ'
+    },
+    {
+      jirolian_id: 1,
+      jiro_id: 2,
+      content: 'フガフガ',
+      soup: 1,
+      noodle: 1,
+      boiled_vegetable: 1,
+      roasted_pork: 1,
+      called: '別皿ニンニクガリマヨ'
+    },
+    {
+      jirolian_id: 1,
+      jiro_id: 3,
+      content: 'ぴよぴよぴよ',
+      soup: 1,
+      noodle: 1,
+      boiled_vegetable: 1,
+      roasted_pork: 1,
+      called: 'カラアゲ半分'
+    },
+    {
+      jirolian_id: 2,
+      jiro_id: 1,
+      content: 'ほげほげほげほげ',
+      soup: 2,
+      noodle: 2,
+      boiled_vegetable: 2,
+      roasted_pork: 2,
+      called: 'ヤサイマシマシアブラ'
+    },
+    {
+      jirolian_id: 2,
+      jiro_id: 2,
+      content: 'フガフガ',
+      soup: 2,
+      noodle: 2,
+      boiled_vegetable: 2,
+      roasted_pork: 2,
+      called: '別皿ニンニク'
+    },
+    {
+      jirolian_id: 2,
+      jiro_id: 3,
+      content: 'ぴよぴよぴよ',
+      soup: 2,
+      noodle: 2,
+      boiled_vegetable: 2,
+      roasted_pork: 2,
+      called: 'アブラ'
+    },
+    {
+      jirolian_id: 3,
+      jiro_id: 1,
+      content: 'ほげほげほげほげ',
+      soup: 3,
+      noodle: 3,
+      boiled_vegetable: 3,
+      roasted_pork: 3,
+      called: 'ヤサイマシアブラマシマシ'
+    },
+    {
+      jirolian_id: 3,
+      jiro_id: 2,
+      content: 'フガフガ',
+      soup: 3,
+      noodle: 3,
+      boiled_vegetable: 3,
+      roasted_pork: 3,
+      called: '別皿ガリマヨ'
+    },
+    {
+      jirolian_id: 3,
+      jiro_id: 3,
+      content: 'ぴよぴよぴよ',
+      soup: 3,
+      noodle: 3,
+      boiled_vegetable: 3,
+      roasted_pork: 3,
+      called: 'ヤサイ'
+    }
+  ]
+)

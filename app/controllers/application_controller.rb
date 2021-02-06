@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(jirolian_id)
-    jirolian_path jirolian_id
+    jirolians_mypage_path jirolian_id
   end
 
   protected

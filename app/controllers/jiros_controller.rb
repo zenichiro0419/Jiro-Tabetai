@@ -7,11 +7,13 @@ class JirosController < ApplicationController
     @facility = @jiro.facility
     @table_seasonings = create_table_seasonings_list(@facility) if @facility
 
-    @main_menus = @jiro.menu_item.main_menu
+    @main_menus = @jiro.menu_items.main_menu
     @toppings_list = create_toppings_list(@main_menus)
-    @option_menus = @jiro.menu_item.option_menu
+    @option_menus = @jiro.menu_items.option_menu
 
-    @business_hour_wdays_list = @jiro.business_hour.group_by(&:wday)
+    @business_hour_wdays_list = @jiro.business_hours.group_by(&:wday)
+
+    @posts = Post.where(jiro_id: params[:id])
   end
 
   def new

@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :jirolians
 
   root 'top#index'
+
+  # get '/mypage' => 'jirolians#mypage'
+  resources :posts, expect: [:index] do
+    resource :favorite_posts, only: [:create, :destroy]
+  end
+
   resources :jiros, except: [:destroy] do
     resource :business_hours, only: [:edit, :update]
     resource :facilities, only: [:edit, :update]
@@ -11,7 +17,15 @@ Rails.application.routes.draw do
         patch 'update_option_menu'
       end
     end
+    resource :posts, only: [:new, :create]
   end
 
-  resources :jirolians, only: [:show, :edit, :update]
+  # resources :jirolians, only: [:show] do
+  #   resources :posts, only: [:show]
+  # end
+
+  get '/jirolians/mypage' => 'jirolians#mypage'
+  get '/jirolians/:username' => 'jirolians#show'
+  get '/jirolians/:username/edit' => 'jirolians#edit'
+  patch '/jirolians/:username' => 'jirolians#update'
 end

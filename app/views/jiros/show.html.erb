@@ -1,3 +1,4 @@
+<%= button_to '食レポ', new_jiro_posts_path(@jiro), method: :get %>
 <h1>店舗情報</h1>
   <h2>基本情報</h2>
     <table class="table">
@@ -107,4 +108,29 @@
         <% end %>
       </table>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <div>
+          <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
+          <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
+          <a href="/jiros/<%= @jiro.id %>"><%= @jiro.name %></a><br>
+          <p><%= post.content %></p>
+          <p>トッピング：<%= post.called %></p>
+          <% if post.favorited_by?(current_jirolian) %>
+            <%= link_to post_favorite_posts_path(post), method: :delete do %>
+              <span class="fa fa-heart like-btn-unlike"　aria-hidden="true" style="color: #ff2581;"><%= post.favorite_posts.count %></span>
+            <% end %>
+          <% else %>
+            <%= link_to post_favorite_posts_path(post), method: :post do %>
+              <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;"><%= post.favorite_posts.count %></span>
+            <% end %>
+          <% end %>
+        </div>
+        <hr style="border-bottom: 3px double #8899a6;">
+      <% end %>
+    <% else %>
+      <div>この店舗に関する投稿は有りません。</div>  
+    <% end %>
 

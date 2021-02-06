@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_144917) do
+ActiveRecord::Schema.define(version: 2021_02_04_185625) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2021_01_30_144917) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "favorite_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "jirolian_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jirolian_id"], name: "index_favorite_posts_on_jirolian_id"
+    t.index ["post_id"], name: "index_favorite_posts_on_post_id"
+  end
+
   create_table "jirolians", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,12 +74,12 @@ ActiveRecord::Schema.define(version: 2021_01_30_144917) do
     t.string "provider"
     t.string "uid"
     t.string "username"
-    t.integer "sex"
     t.datetime "birth_date"
     t.string "home_jiro"
     t.text "introduction"
     t.string "hp_url"
     t.boolean "approved_favorited"
+    t.integer "gender"
     t.index ["confirmation_token"], name: "index_jirolians_on_confirmation_token", unique: true
     t.index ["email"], name: "index_jirolians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_jirolians_on_reset_password_token", unique: true
@@ -113,4 +122,19 @@ ActiveRecord::Schema.define(version: 2021_01_30_144917) do
     t.string "topping7"
   end
 
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "jirolian_id"
+    t.integer "jiro_id"
+    t.text "content"
+    t.integer "soup"
+    t.integer "noodle"
+    t.integer "boiled_vegetable"
+    t.integer "roasted_pork"
+    t.string "called"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "favorite_posts", "jirolians"
+  add_foreign_key "favorite_posts", "posts"
 end
