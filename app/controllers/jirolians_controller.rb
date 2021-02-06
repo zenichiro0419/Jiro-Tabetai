@@ -6,7 +6,10 @@ class JiroliansController < ApplicationController
     redirect_to "/jirolians/#{current_jirolian.username}"
   end
 
-  def show; end
+  def show
+    jirolian = Jirolian.find_by(username: params[:username])
+    @posts = Post.where(jirolian_id: jirolian.id)
+  end
 
   def edit
     redirect_to "/jirolians/#{@jirolian.username}" unless @jirolian == current_jirolian
