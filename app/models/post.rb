@@ -15,9 +15,14 @@
 #  jirolian_id      :integer
 #
 class Post < ApplicationRecord
-  has_many :favotrite_post
+  has_many :favorite_posts, dependent: :destroy
+  belongs_to :jirolian, optional: true
 
   validates :content, presence: true
   validates :jiro_id, presence: true
   validates :jirolian_id, presence: true
+
+  def favorited_by?(jirolian)
+    favorite_posts.where(jirolian_id: jirolian.id).exists?
+  end
 end

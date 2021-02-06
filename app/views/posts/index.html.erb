@@ -1,9 +1,22 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
-  <% @posts.each do |post| %>
-    <p><%= Jirolian.find(post.jirolian_id).username %></p> 
-    <p><%= Jiro.find(post.jiro_id).name %></p> 
+<% @posts.each do |post| %>
+  <% jiro = Jiro.find(post.jiro_id)%>
+  <div>
+    <a href="/jirolians/<%=post.jirolian.username %>"><%= post.jirolian.username %></a><br>
+    <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
+    <a href="/jiros/<%=jiro.id %>"><%= jiro.name %></a><br>
     <p><%= post.content %></p>
-    <p><%= post.called %></p>
-    <br>
-  <% end %>
-
+    <p>トッピング：<%= post.called %></p>
+    <% if post.favorited_by?(current_jirolian) %>
+      <%= link_to post_favorite_posts_path(post), method: :delete do %>
+        <span class="fa fa-heart like-btn-unlike"　aria-hidden="true" style="color: #ff2581;"><%= post.favorite_posts.count %></span>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorite_posts_path(post), method: :post do %>
+        <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;"><%= post.favorite_posts.count %></span>
+      <% end %>
+    <% end %>
+  </div>
+  <hr style="border-bottom: 3px double #8899a6;">
+<% end %>

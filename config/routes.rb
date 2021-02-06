@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'top#index'
 
   # get '/mypage' => 'jirolians#mypage'
-  get '/posts' => 'posts#index'
+  resources :posts, expect: [:index] do
+    resource :favorite_posts, only: [:create, :destroy]
+  end
 
   resources :jiros, except: [:destroy] do
     resource :business_hours, only: [:edit, :update]
