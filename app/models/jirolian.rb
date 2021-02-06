@@ -40,6 +40,8 @@
 #  index_jirolians_on_unlock_token          (unlock_token) UNIQUE
 #
 class Jirolian < ApplicationRecord
+  has_many :posts, dependent: :destroy
+  has_many :favorite_posts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
