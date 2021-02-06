@@ -12,6 +12,8 @@ class JirosController < ApplicationController
     @option_menus = @jiro.menu_items.option_menu
 
     @business_hour_wdays_list = @jiro.business_hours.group_by(&:wday)
+
+    @posts = Post.where(jiro_id: params[:id])
   end
 
   def new
