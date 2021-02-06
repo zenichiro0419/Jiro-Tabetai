@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_191216) do
+ActiveRecord::Schema.define(version: 2021_02_04_185625) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -43,10 +43,12 @@ ActiveRecord::Schema.define(version: 2021_02_03_191216) do
   end
 
   create_table "favorite_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "jirolian_id"
-    t.integer "post_id"
+    t.bigint "jirolian_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["jirolian_id"], name: "index_favorite_posts_on_jirolian_id"
+    t.index ["post_id"], name: "index_favorite_posts_on_post_id"
   end
 
   create_table "jirolians", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -133,4 +135,6 @@ ActiveRecord::Schema.define(version: 2021_02_03_191216) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorite_posts", "jirolians"
+  add_foreign_key "favorite_posts", "posts"
 end
