@@ -26,9 +26,9 @@
 <% @posts.each do |post| %>
   <% jiro = Jiro.find(post.jiro_id)%>
   <div>
-    <a href="/jirolians/<%=post.jirolian.username %>"><%= post.jirolian.username %></a><br>
+    <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
     <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
-    <a href="/jiros/<%=jiro.id %>"><%= jiro.name %></a><br>
+    <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
     <p><%= post.content %></p>
     <p>トッピング：<%= post.called %></p>
     <% if post.favorited_by?(current_jirolian) %>
