@@ -21,4 +21,6 @@
 class WannaEatStatus < ApplicationRecord
   belongs_to :jiro
   belongs_to :jirolian
+
+  validates_uniqueness_of :jiro_id, scope: :jirolian_id
 end

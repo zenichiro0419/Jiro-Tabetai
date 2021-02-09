@@ -23,7 +23,8 @@ class Jiro < ApplicationRecord
   has_one :facility
   has_many :menu_items
   has_many :business_hours
-  has_many :favorite_posts
+  has_many :wanna_eat_statuses, dependent: :destroy
+  has_many :have_eaten_statuses, dependent: :destroy
 
   enum payment_method: {default: 0, only_cash: 1, available_bisides_cash: 2}, _prefix: true
   enum how_to_order: {default: 0, meal_voucher_system: 1, order_system: 2}, _prefix: true
