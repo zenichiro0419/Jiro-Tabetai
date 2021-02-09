@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
 <%= button_to '食レポ', new_jiro_posts_path(@jiro), method: :get %>
 
 <%= render 'jiros/wanna_eat_button', jiro: @jiro %>
@@ -112,8 +114,6 @@
         <% end %>
       </table>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
     <% if @posts.present? %>
       <% @posts.each do |post| %>
         <div>
@@ -122,15 +122,14 @@
           <a href="/jiros/<%= @jiro.id %>"><%= @jiro.name %></a><br>
           <p><%= post.content %></p>
           <p>トッピング：<%= post.called %></p>
-          <% if post.favorited_by?(current_jirolian) %>
-            <%= link_to post_favorite_posts_path(post), method: :delete do %>
-              <span class="fa fa-heart like-btn-unlike"　aria-hidden="true" style="color: #ff2581;"><%= post.favorite_posts.count %></span>
-            <% end %>
+          <% if jirolian_signed_in? %>
+            <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
           <% else %>
-            <%= link_to post_favorite_posts_path(post), method: :post do %>
-              <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;"><%= post.favorite_posts.count %></span>
+            <%= link_to new_jirolian_session_path do %>
+              <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
+              <%= post.favorite_posts.count %></span>
             <% end %>
-          <% end %>
+          <% end%>
         </div>
         <hr style="border-bottom: 3px double #8899a6;">
       <% end %>
