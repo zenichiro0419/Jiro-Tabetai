@@ -1,11 +1,18 @@
-<% if jiro.checked_wanna_eat_by?(current_jirolian) %>
-  <%= link_to jiro_wanna_eat_statuses_path(jiro), method: :delete do %>
-    <span class="btn btn-primary">
-    <%= "食べたい#{jiro.wanna_eat_statuses.count}" %></span>
+<% if jirolian_signed_in? %>
+  <% if jiro.checked_wanna_eat_by?(current_jirolian) %>
+    <%= link_to jiro_wanna_eat_statuses_path(jiro), method: :delete do %>
+      <span class="btn btn-primary">
+      <%= "食べたい#{jiro.wanna_eat_statuses.count}" %></span>
+    <% end %>
+  <% else %>
+    <%= link_to jiro_wanna_eat_statuses_path(jiro), method: :post do %>
+      <span class="btn btn-secondary">
+      <%= "食べたい#{jiro.wanna_eat_statuses.count}" %></span>
+    <% end %>
   <% end %>
 <% else %>
-  <%= link_to jiro_wanna_eat_statuses_path(jiro), method: :post do %>
-    <span class="btn btn-secondary">
+  <%= link_to new_jirolian_session_path do %>
+    <span class="btn btn-primary">
     <%= "食べたい#{jiro.wanna_eat_statuses.count}" %></span>
   <% end %>
 <% end %>
