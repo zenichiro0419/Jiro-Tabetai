@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       end
     end
     resource :posts, only: [:new, :create]
+    resource :wanna_eat_statuses, only: [:create, :destroy]
+    resource :have_eaten_statuses, only: [:create, :destroy]
   end
 
   # resources :jirolians, only: [:show] do
