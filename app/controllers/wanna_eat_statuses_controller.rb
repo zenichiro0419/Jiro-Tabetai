@@ -1,0 +1,2 @@
+class WannaEatStatusesController < ApplicationController
+end
