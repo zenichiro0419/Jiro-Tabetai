@@ -1,0 +1,2 @@
+module WannaEatStatusesHelper
+end

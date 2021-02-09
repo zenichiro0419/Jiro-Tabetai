@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_185625) do
+ActiveRecord::Schema.define(version: 2021_02_09_164748) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2021_02_04_185625) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["jirolian_id"], name: "index_favorite_posts_on_jirolian_id"
     t.index ["post_id"], name: "index_favorite_posts_on_post_id"
+  end
+
+  create_table "have_eaten_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "jiro_id", null: false
+    t.bigint "jirolian_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jiro_id"], name: "index_have_eaten_statuses_on_jiro_id"
+    t.index ["jirolian_id"], name: "index_have_eaten_statuses_on_jirolian_id"
   end
 
   create_table "jirolians", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -135,6 +144,19 @@ ActiveRecord::Schema.define(version: 2021_02_04_185625) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "wanna_eat_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "jiro_id", null: false
+    t.bigint "jirolian_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jiro_id"], name: "index_wanna_eat_statuses_on_jiro_id"
+    t.index ["jirolian_id"], name: "index_wanna_eat_statuses_on_jirolian_id"
+  end
+
   add_foreign_key "favorite_posts", "jirolians"
   add_foreign_key "favorite_posts", "posts"
+  add_foreign_key "have_eaten_statuses", "jirolians"
+  add_foreign_key "have_eaten_statuses", "jiros"
+  add_foreign_key "wanna_eat_statuses", "jirolians"
+  add_foreign_key "wanna_eat_statuses", "jiros"
 end
