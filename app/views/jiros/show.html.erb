@@ -1,4 +1,8 @@
 <%= button_to '食レポ', new_jiro_posts_path(@jiro), method: :get %>
+
+<%= render 'jiros/wanna_eat_button', jiro: @jiro %>
+<%= render 'jiros/have_eaten_button', jiro: @jiro %>
+
 <h1>店舗情報</h1>
   <h2>基本情報</h2>
     <table class="table">
