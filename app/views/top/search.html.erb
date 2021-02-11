@@ -1,0 +1,17 @@
+<% @jiros.each do |jiro| %>
+  <table>
+    <tr><%=link_to jiro.name, jiro_path(jiro) %></tr>
+    <td><%= jiro.address %></td>
+    <tr>
+      <td>
+        <label for="wanna_eat">食べたい</label>
+        <span style="color: red;"><%= jiro.wanna_eat_statuses.count %></span>
+      </td>
+      <td>
+        <label for="have_eaten">食べた</label>
+        <span style="color: red;"><%= jiro.have_eaten_statuses.count %></span>
+      </td>
+    <tr>
+  </table>
+  <hr style="border-bottom: 3px double #8899a6;">
+<% end %>

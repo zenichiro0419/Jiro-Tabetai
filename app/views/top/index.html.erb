@@ -1,2 +1,7 @@
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
+<div class="search_box">
+  <%= search_form_for @search, url: search_path do |f| %>
+    <%= f.label :name_or_addressor_access_cont, "Keyword" %>
+    <%= f.search_field :name_or_address_or_access_cont %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
