@@ -41,6 +41,8 @@ group :development, :test do
   # Setup Devise for login & signup function
   gem 'devise'
   gem 'omniauth-twitter'
+  # Setup search function
+  gem 'ransack'
 end
 
 group :development do
