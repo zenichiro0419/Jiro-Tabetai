@@ -1,3 +1,10 @@
 .search_box {
-  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.search {
+  height: 100px;
 }
