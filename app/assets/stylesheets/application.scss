@@ -11,5 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
 @import "~bootstrap/scss/bootstrap";
+
+.notifications {
+  color: white;
+  text-align: center;
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: red;
+  }
+}
