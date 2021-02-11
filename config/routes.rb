@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
-  # get '/mypage' => 'jirolians#mypage'
+  get '/search' => 'top#search'
   resources :posts, expect: [:index] do
     resource :favorite_posts, only: [:create, :destroy]
   end
