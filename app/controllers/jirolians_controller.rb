@@ -7,8 +7,13 @@ class JiroliansController < ApplicationController
   end
 
   def show
-    jirolian = Jirolian.find_by(username: params[:username])
-    @posts = Post.where(jirolian_id: jirolian.id)
+    @posts = Post.where(jirolian_id: @jirolian.id)
+
+    wanna_eat_jiro_ids = @jirolian.wanna_eat_statuses.pluck(:jiro_id)
+    @wanna_eat_jiros = Jiro.where(id: wanna_eat_jiro_ids)
+
+    have_eaten_jiro_ids = @jirolian.have_eaten_statuses.pluck(:jiro_id)
+    @have_eaten_jiros = Jiro.where(id: have_eaten_jiro_ids)
   end
 
   def edit
