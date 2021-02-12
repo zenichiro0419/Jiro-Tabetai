@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'jirolian/show' %>
+
 <% if jirolian_signed_in? && @jirolian == current_jirolian %>
   <h1>マイページ</h1>
 <% else %>
@@ -21,24 +23,53 @@
 <% end %>
 
 <br>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
-<% @posts.each do |post| %>
-  <% jiro = Jiro.find(post.jiro_id)%>
-  <div>
-    <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
-    <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
-    <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
-    <p><%= post.content %></p>
-    <p>トッピング：<%= post.called %></p>
-    <% if jirolian_signed_in? %>
-      <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
-    <% else %>
-      <%= link_to new_jirolian_session_path do %>
-        <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
-        <%= post.favorite_posts.count %></span>
+<div class="container">
+  <ul class="tab-list">
+    <li class="tab tab-active">ジ活</li>
+    <li class="tab">食べたい</li>
+    <li class="tab">食べた</li>
+  </ul>
+  <div class="tabbox-contents">
+    <div class="tabbox box-show">
+      <% @posts.each do |post| %>
+        <% jiro = Jiro.find(post.jiro_id)%>
+        <div>
+          <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
+          <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
+          <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
+          <p><%= post.content %></p>
+          <p>トッピング：<%= post.called %></p>
+          <% if jirolian_signed_in? %>
+            <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
+          <% else %>
+            <%= link_to new_jirolian_session_path do %>
+              <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
+              <%= post.favorite_posts.count %></span>
+            <% end %>
+          <% end%>
+        </div>
+        <hr style="border-bottom: 3px double #8899a6;">
       <% end %>
-    <% end%>
+    </div>
+    <div class="tabbox">
+      <% @wanna_eat_jiros.each do |jiro| %>
+        <table>
+          <tr><%=link_to jiro.name, jiro_path(jiro) %></tr>
+          <td><%= jiro.address %></td>
+        </table>
+        <hr style="border-bottom: 3px double #8899a6;">
+      <% end %>
+    </div>
+    <div class="tabbox">
+      <% @have_eaten_jiros.each do |jiro| %>
+        <table>
+          <tr><%=link_to jiro.name, jiro_path(jiro) %></tr>
+          <td><%= jiro.address %></td>
+        </table>
+        <hr style="border-bottom: 3px double #8899a6;">
+      <% end %>
+    </div>
   </div>
-  <hr style="border-bottom: 3px double #8899a6;">
-<% end %>
+</div>
+
