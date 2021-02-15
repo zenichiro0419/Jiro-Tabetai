@@ -18,6 +18,8 @@
       <td><a href="<%=@jirolian.hp_url %>"><%= @jirolian.hp_url %></td></tr>
   </table>
 
+<%= render 'follow_button', jirolian: @jirolian, curretn_jirolian: current_jirolian %>
+
 <% if jirolian_signed_in? && @jirolian == current_jirolian %>
   <div><%= button_to "編集", "/jirolians/#{current_jirolian.username}/edit", method: :get %></div>
 <% end %>

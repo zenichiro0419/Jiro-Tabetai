@@ -1,0 +1,13 @@
+<% unless current_jirolian == jirolian %>
+  <% if current_jirolian.following?(jirolian) %>
+    <%= form_for(current_jirolian.relationships.find_by(follow_id: jirolian.id), html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :follow_id, jirolian.id %>
+      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_jirolian.relationships.build) do |f| %>
+      <%= hidden_field_tag :follow_id, jirolian.id %>
+      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>
