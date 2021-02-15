@@ -5,10 +5,10 @@ class RelationshipsController < ApplicationController
     following = current_jirolian.follow(@jirolian)
     if following.save
       flash[:success] = 'ジロリアンをフォローしました'
-      redirect_to @jirolian
+      redirect_to "/jirolians/#{@jirolian.username}"
     else
       flash.now[:alert] = 'ジロリアンのフォローに失敗しました'
-      redirect_to @jirolian
+      redirect_to "/jirolians/#{@jirolian.username}"
     end
   end
 
@@ -16,16 +16,16 @@ class RelationshipsController < ApplicationController
     following = current_jirolian.unfollow(@jirolian)
     if following.destroy
       flash[:success] = 'ジロリアンのフォローを解除しました'
-      redirect_to @jirolian
+      redirect_to "/jirolians/#{@jirolian.username}"
     else
       flash.now[:alert] = 'ジロリアンのフォロー解除に失敗しました'
-      redirect_to @jirolian
+      redirect_to "/jirolians/#{@jirolian.username}"
     end
   end
 
   private
-  def
-    @jirolian = Jirolian.find(params[:relationship][:follow_id])
-  end
 
+  def set_jirolian
+    @jirolian = Jirolian.find(params[:follow_id])
+  end
 end
