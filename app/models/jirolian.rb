@@ -44,6 +44,10 @@ class Jirolian < ApplicationRecord
   has_many :favorite_posts, dependent: :destroy
   has_many :wanna_eat_statuses, dependent: :destroy
   has_many :have_eaten_statuses, dependent: :destroy
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :jirolian
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -53,4 +57,17 @@ class Jirolian < ApplicationRecord
   enum gender: {male: 0, female: 1, unanswered: 2}
 
   validates :username, presence: true
+
+  def follow(other_jirolian)
+    relationships.find_or_create_by(follow_id: other_jirolian.id) unless self == other_jirolian
+  end
+
+  def unfollow(other_jirolian)
+    relationship = relationships.find_by(follow_id: other_jirolian.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_jirolian)
+    followings.include?(other_jirolian)
+  end
 end

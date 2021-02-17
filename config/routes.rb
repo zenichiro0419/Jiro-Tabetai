@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   get '/jirolians/:username' => 'jirolians#show'
   get '/jirolians/:username/edit' => 'jirolians#edit'
   patch '/jirolians/:username' => 'jirolians#update'
+
+  resources :relationships, only: [:create, :destroy]
 end

@@ -14,6 +14,12 @@ class JiroliansController < ApplicationController
 
     have_eaten_jiro_ids = @jirolian.have_eaten_statuses.pluck(:jiro_id)
     @have_eaten_jiros = Jiro.where(id: have_eaten_jiro_ids)
+
+    followed_ids = Relationship.where(jirolian_id: @jirolian.id).pluck(:follow_id)
+    @followed_jirolians = Jirolian.where(id: followed_ids)
+
+    follower_ids = Relationship.where(follow_id: @jirolian.id).pluck(:jirolian_id)
+    @follower_jirolians = Jirolian.where(id: follower_ids)
   end
 
   def edit

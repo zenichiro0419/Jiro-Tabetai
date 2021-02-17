@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_164748) do
+ActiveRecord::Schema.define(version: 2021_02_15_122021) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "jiro_id"
@@ -144,6 +144,26 @@ ActiveRecord::Schema.define(version: 2021_02_09_164748) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "relation_ships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "jirolian_id", null: false
+    t.bigint "follow_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relation_ships_on_follow_id"
+    t.index ["jirolian_id", "follow_id"], name: "index_relation_ships_on_jirolian_id_and_follow_id", unique: true
+    t.index ["jirolian_id"], name: "index_relation_ships_on_jirolian_id"
+  end
+
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "jirolian_id"
+    t.bigint "follow_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["jirolian_id", "follow_id"], name: "index_relationships_on_jirolian_id_and_follow_id", unique: true
+    t.index ["jirolian_id"], name: "index_relationships_on_jirolian_id"
+  end
+
   create_table "wanna_eat_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "jiro_id", null: false
     t.bigint "jirolian_id", null: false
@@ -157,6 +177,10 @@ ActiveRecord::Schema.define(version: 2021_02_09_164748) do
   add_foreign_key "favorite_posts", "posts"
   add_foreign_key "have_eaten_statuses", "jirolians"
   add_foreign_key "have_eaten_statuses", "jiros"
+  add_foreign_key "relation_ships", "jirolians"
+  add_foreign_key "relation_ships", "jirolians", column: "follow_id"
+  add_foreign_key "relationships", "jirolians"
+  add_foreign_key "relationships", "jirolians", column: "follow_id"
   add_foreign_key "wanna_eat_statuses", "jirolians"
   add_foreign_key "wanna_eat_statuses", "jiros"
 end
