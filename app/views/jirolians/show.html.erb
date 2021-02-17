@@ -18,7 +18,9 @@
       <td><a href="<%=@jirolian.hp_url %>"><%= @jirolian.hp_url %></td></tr>
   </table>
 
-<%= render 'follow_button', jirolian: @jirolian, curretn_jirolian: current_jirolian %>
+<% if jirolian_signed_in? %>
+  <%= render 'follow_button', jirolian: @jirolian, current_jirolian: current_jirolian %>
+<% end %>
 
 <% if jirolian_signed_in? && @jirolian == current_jirolian %>
   <div><%= button_to "編集", "/jirolians/#{current_jirolian.username}/edit", method: :get %></div>
@@ -31,6 +33,8 @@
     <li class="tab tab-active">ジ活</li>
     <li class="tab">食べたい</li>
     <li class="tab">食べた</li>
+    <li class="tab">フォロー(<%= "#{@followed_jirolians.count}" %>)</li>
+    <li class="tab">フォロワー(<%= "#{@follower_jirolians.count}" %>)</li>
   </ul>
   <div class="tabbox-contents">
     <div class="tabbox box-show">
@@ -72,6 +76,22 @@
         <hr style="border-bottom: 3px double #8899a6;">
       <% end %>
     </div>
+    <div class="tabbox">
+      <% @followed_jirolians.each do |jirolian| %>
+        <table>
+          <tr><%= link_to jirolian.username, "/jirolians/#{jirolian.username}" %></tr>
+        </table>
+        <hr style="border-bottom: 3px double #8899a6;">
+      <% end %>
+    </div>
+    <div class="tabbox">
+      <% @follower_jirolians.each do |jirolian| %>
+        <table>
+          <tr><%= link_to jirolian.username, "/jirolians/#{jirolian.username}" %></tr>
+        </table>
+        <hr style="border-bottom: 3px double #8899a6;">
+      <% end %>      
+    </div>        
   </div>
 </div>
 
