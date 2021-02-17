@@ -1,11 +1,11 @@
 <% unless current_jirolian == jirolian %>
   <% if current_jirolian.following?(jirolian) %>
-    <%= form_for(current_jirolian.relationships.find_by(follow_id: jirolian.id), html: { method: :delete }) do |f| %>
+    <%= form_with(model: current_jirolian.relationships.find_by(follow_id: jirolian.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :follow_id, jirolian.id %>
       <%= f.submit 'フォローを外す', class: 'btn btn-info' %>
     <% end %>
   <% else %>
-    <%= form_for(current_jirolian.relationships.build) do |f| %>
+    <%= form_with(model: current_jirolian.relationships.build) do |f| %>
       <%= hidden_field_tag :follow_id, jirolian.id %>
       <%= f.submit 'フォロー', class: 'btn btn-outline-info' %>
     <% end %>
