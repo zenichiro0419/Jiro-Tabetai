@@ -16,6 +16,8 @@
 #  gender                 :integer
 #  home_jiro              :string(255)
 #  hp_url                 :string(255)
+#  image                  :string(255)
+#  image_name             :string(255)
 #  introduction           :text(65535)
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string(255)
@@ -53,6 +55,8 @@ class Jirolian < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, omniauth_providers: [:twitter]
+
+  mount_uploader :image, ImageUploader
 
   enum gender: {male: 0, female: 1, unanswered: 2}
 
