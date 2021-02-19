@@ -6,6 +6,12 @@
   <h1>ユーザーページ</h1>
 <% end %>
 
+<% if @jirolian.image.present? %>
+  <%= image_tag @jirolian.image.url, alt: "jirolian-icon", size: "50", class: "jirolian-icon" %>
+<% else %>
+  <%= image_tag 'default.jpg', alt: "default-jirolian-icon", size: "50", class: "jirolian-icon" %>
+<% end %>  
+
 <h2><%= @jirolian.username %></h2>
   <table class="table">
     <tr><th>登録日：</th>
