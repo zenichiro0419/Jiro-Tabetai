@@ -27,12 +27,11 @@ class JiroliansController < ApplicationController
   end
 
   def update
-    # TODO: Header作成時にflashを埋め込む。
     if current_jirolian.update(jirolian_params)
-      # flash.notice = '更新が完了しました。'
+      flash.notice = '更新が完了しました。'
       redirect_to "/jirolians/#{current_jirolian.username}"
     else
-      # flash.notice = '更新に失敗しました。'
+      flash.notice = '更新に失敗しました。'
       redirect_to "/jirolians/#{current_jirolian.username}/edit"
     end
   end
@@ -45,6 +44,6 @@ class JiroliansController < ApplicationController
 
   def jirolian_params
     params[:jirolian].permit(:username, :gender, :birth_date, :home_jiro, :introduction, :hp_url,
-                             :approved_favorited)
+                             :approved_favorited, :image)
   end
 end

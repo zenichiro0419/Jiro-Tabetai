@@ -1,5 +1,9 @@
 <%= form_with(model: @jirolian, url: "/jirolians/#{@jirolian.username}", local: true) do |f| %>
   <table class="form-table">
+    <%= render 'image_uploader', jirolian: @jirolian %>
+    <button type="button" class="btn btn-outline-secondary rounded-pill">
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "image-select-btn" %>
+    </button>
     <tr>
       <th><%= f.label :username, "ユーザーネーム" %></th>
       <td><%= f.text_field(:username, class: "username", size: 30) %></td>
