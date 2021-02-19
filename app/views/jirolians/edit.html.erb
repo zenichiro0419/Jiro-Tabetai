@@ -1,6 +1,10 @@
 <%= form_with(model: @jirolian, url: "/jirolians/#{@jirolian.username}", local: true) do |f| %>
   <table class="form-table">
     <tr>
+      <th><%= f.label :image, "プロフィール画像" %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>  
+    <tr>
       <th><%= f.label :username, "ユーザーネーム" %></th>
       <td><%= f.text_field(:username, class: "username", size: 30) %></td>
     </tr>

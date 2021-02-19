@@ -16,6 +16,8 @@
 #  gender                 :integer
 #  home_jiro              :string(255)
 #  hp_url                 :string(255)
+#  image                  :string(255)
+#  image_name             :string(255)
 #  introduction           :text(65535)
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string(255)
@@ -48,6 +50,7 @@ class Jirolian < ApplicationRecord
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :jirolian
+  mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

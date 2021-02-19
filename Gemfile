@@ -43,6 +43,9 @@ group :development, :test do
   gem 'omniauth-twitter'
   # Setup search function
   gem 'ransack'
+  # Setup carrierwave
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :development do
