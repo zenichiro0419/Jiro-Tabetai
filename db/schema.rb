@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_162115) do
     t.string "hp_url"
     t.boolean "approved_favorited"
     t.integer "gender"
-    t.string "image_name"
     t.string "image"
     t.index ["confirmation_token"], name: "index_jirolians_on_confirmation_token", unique: true
     t.index ["email"], name: "index_jirolians_on_email", unique: true
@@ -146,16 +145,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_162115) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "relation_ships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "jirolian_id", null: false
-    t.bigint "follow_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["follow_id"], name: "index_relation_ships_on_follow_id"
-    t.index ["jirolian_id", "follow_id"], name: "index_relation_ships_on_jirolian_id_and_follow_id", unique: true
-    t.index ["jirolian_id"], name: "index_relation_ships_on_jirolian_id"
-  end
-
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "jirolian_id"
     t.bigint "follow_id"
@@ -179,8 +168,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_162115) do
   add_foreign_key "favorite_posts", "posts"
   add_foreign_key "have_eaten_statuses", "jirolians"
   add_foreign_key "have_eaten_statuses", "jiros"
-  add_foreign_key "relation_ships", "jirolians"
-  add_foreign_key "relation_ships", "jirolians", column: "follow_id"
   add_foreign_key "relationships", "jirolians"
   add_foreign_key "relationships", "jirolians", column: "follow_id"
   add_foreign_key "wanna_eat_statuses", "jirolians"

@@ -263,8 +263,8 @@ BusinessHour.create!(
 jirolians =
   [
     {
-      username: 'ichiro',
-      email: 'zenichiro@gmail.com',
+      username: 'ぜん',
+      email: 'zenichiro0419@gmail.com',
       gender: 1,
       home_jiro: '千里眼',
       hp_url: 'https://twitter.com/home',
@@ -273,10 +273,11 @@ jirolians =
       password: '123456789',
       confirmation_sent_at: '2020-04-18 00:00:00',
       confirmation_token: 'asdfghjk',
-      confirmed_at: '2020-04-19 00:00:00'
+      confirmed_at: '2020-04-19 00:00:00',
+      image: File.open('app/assets/images/mario.png')
     },
     {
-      username: 'jiro',
+      username: 'いちろう',
       email: 'zenichiro.ishikawa@gmail.com',
       gender: 2,
       home_jiro: '用心棒',
@@ -286,10 +287,11 @@ jirolians =
       password: '123456789',
       confirmation_sent_at: '2020-04-18 00:00:00',
       confirmation_token: 'zxcvbnm',
-      confirmed_at: '2020-04-19 00:00:00'
+      confirmed_at: '2020-04-19 00:00:00',
+      image: File.open('app/assets/images/ruige.png')
     },
     {
-      username: 'sabuiro',
+      username: '石川さん',
       email: 'z.ishikawa@toreta.in',
       gender: 1,
       home_jiro: '鷹の目',
@@ -299,7 +301,22 @@ jirolians =
       password: '123456789',
       confirmation_sent_at: '2020-04-18 00:00:00',
       confirmation_token: 'qwertyuio',
-      confirmed_at: '2020-04-19 00:00:00'
+      confirmed_at: '2020-04-19 00:00:00',
+      image: File.open('app/assets/images/teresa.jpg')
+    },
+    {
+      username: '善一郎さん',
+      email: 'zenichiro.ishikawa@lovegraph.me',
+      gender: 1,
+      home_jiro: '富士丸',
+      hp_url: 'https://twitter.com/home',
+      introduction: 'お残しは許しません。',
+      approved_favorited: true,
+      password: '123456789',
+      confirmation_sent_at: '2020-04-18 00:00:00',
+      confirmation_token: 'mnbvcxz',
+      confirmed_at: '2020-04-19 00:00:00',
+      image: File.open('app/assets/images/kuppa.png')
     }
   ]
 jirolians.each do |record|
