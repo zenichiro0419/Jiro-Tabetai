@@ -8,6 +8,7 @@
 #  call_timing            :integer
 #  how_to_order           :integer
 #  hp_url                 :string(255)
+#  image                  :string(255)
 #  information            :text(65535)
 #  is_closed              :boolean
 #  is_parking_area        :boolean
