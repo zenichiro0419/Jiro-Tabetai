@@ -1,0 +1,5 @@
+<% if jirolian.image.present? %>
+  <%= image_tag jirolian.image.url, alt: "jirolian-icon", size: "50", class: "jirolian-icon" %>
+<% else %>
+  <%= image_tag 'default.jpg', alt: "default-jirolian-icon", size: "50", class: "jirolian-icon" %>
+<% end %>  
