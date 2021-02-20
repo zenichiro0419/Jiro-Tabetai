@@ -6,11 +6,7 @@
   <h1>ユーザーページ</h1>
 <% end %>
 
-<% if @jirolian.image.present? %>
-  <%= image_tag @jirolian.image.url, alt: "jirolian-icon", size: "50", class: "jirolian-icon" %>
-<% else %>
-  <%= image_tag 'default.jpg', alt: "default-jirolian-icon", size: "50", class: "jirolian-icon" %>
-<% end %>  
+<%= render 'jirolian_image_icon', jirolian: @jirolian %>
 
 <h2><%= @jirolian.username %></h2>
   <table class="table">
@@ -47,6 +43,7 @@
       <% @posts.each do |post| %>
         <% jiro = Jiro.find(post.jiro_id)%>
         <div>
+          <%= render 'jirolian_image_icon', jirolian: @jirolian %>
           <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
           <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
           <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
@@ -85,6 +82,7 @@
     <div class="tabbox">
       <% @followed_jirolians.each do |jirolian| %>
         <table>
+          <tr><%= render 'jirolian_image_icon', jirolian: jirolian %></tr>
           <tr><%= link_to jirolian.username, "/jirolians/#{jirolian.username}" %></tr>
         </table>
         <hr style="border-bottom: 3px double #8899a6;">
@@ -93,6 +91,7 @@
     <div class="tabbox">
       <% @follower_jirolians.each do |jirolian| %>
         <table>
+          <tr><%= render 'jirolian_image_icon', jirolian: jirolian %></tr>
           <tr><%= link_to jirolian.username, "/jirolians/#{jirolian.username}" %></tr>
         </table>
         <hr style="border-bottom: 3px double #8899a6;">
