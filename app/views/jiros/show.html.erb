@@ -117,6 +117,7 @@
     <% if @posts.present? %>
       <% @posts.each do |post| %>
         <div>
+          <%= render 'jirolians/jirolian_image_icon', jirolian: post.jirolian %>
           <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
           <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
           <a href="/jiros/<%= @jiro.id %>"><%= @jiro.name %></a><br>
