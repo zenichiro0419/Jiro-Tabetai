@@ -1,0 +1,5 @@
+<% if jiro.image? %>
+  <%= image_tag jiro.image.thumb.url, class: "jiro-icon" %>
+<% else %>
+  <%= image_tag "no_image.png", alt: "jiro-icon", size: "100", class: "jiro-icon" %>
+<% end %>
