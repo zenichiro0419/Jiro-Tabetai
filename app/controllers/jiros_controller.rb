@@ -1,9 +1,7 @@
 class JirosController < ApplicationController
-  include RemakeParams
+  before_action :set_jiro, expect: [:new, :create]
 
   def show
-    @jiro = Jiro.find_by_id(params[:id])
-
     @facility = @jiro.facility
     @table_seasonings = create_table_seasonings_list(@facility) if @facility
 
@@ -22,7 +20,7 @@ class JirosController < ApplicationController
 
   def create
     ActiveRecord::Base.transaction do
-      @jiro = Jiro.create!(params_int(create_jiro_params))
+      @jiro = Jiro.create!(create_jiro_params)
     end
     Facility.create(jiro_id: @jiro.id)
 
@@ -46,23 +44,23 @@ class JirosController < ApplicationController
     render action: :new
   end
 
-  def edit
-    @jiro = Jiro.find_by_id(params[:id])
-  end
+  def edit; end
 
   def update
-    @jiro = Jiro.find_by_id(params[:id])
-    # TODO: Header作成時にflashを埋め込む。
-    if @jiro.update(params_int(update_jiro_params))
-      # flash.notice = '更新が完了しました。'
+    if @jiro.update(update_jiro_params)
+      flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
     else
-      # flash.notice = '更新に失敗しました。'
+      flash.notice = '更新に失敗しました。'
       render action: :edit
     end
   end
 
   private
+
+  def set_jiro
+    @jiro = Jiro.find_by_id(params[:id])
+  end
 
   # @pramas [Facility] facility
   # @return [Array]
@@ -85,11 +83,11 @@ class JirosController < ApplicationController
 
   def create_jiro_params
     params.require(:jiro).permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count,
-                                 :payment_method, :how_to_order, :call_timing)
+                                 :payment_method, :how_to_order, :call_timing, :image)
   end
 
   def update_jiro_params
-    params.permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count, :payment_method,
-                  :how_to_order, :call_timing)
+    params[:jiro].permit(:name, :address, :access, :is_parking_area, :phone_number, :hp_url, :seat_count, :payment_method,
+                         :how_to_order, :call_timing, :image)
   end
 end

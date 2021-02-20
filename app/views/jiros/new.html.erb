@@ -1,6 +1,10 @@
 <H3>基本情報</H3>
   <%= form_with(model: @jiro, url: jiros_path, local: true) do |f| %>
     <table class="table">
+    <%= render 'image_uploader', jiro: @jiro %>
+    <button type="button" class="btn btn-outline-secondary rounded-pill">
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "image-select-btn" %>
+    </button>
     <tr>
       <th><%= f.label :name, "店鋪名" %></th>
       <td><%= f.text_field(:name, class: "name", size: 30, placeholder: '例：ラーメン二郎 三田本店') %></td>
@@ -35,25 +39,25 @@
     <tr>
       <th><%= f.label :payment_method, "支払方法" %></th>
       <td>
-        <label><%= f.radio_button(:payment_method, 0, class: "payment_method", checked: true) %>未設定</label>
-        <label><%= f.radio_button(:payment_method, 1, class: "payment_method") %>現金のみ</label>
-        <label><%= f.radio_button(:payment_method, 2, class: "payment_method") %>現金以外可</label>
+        <label><%= f.radio_button(:payment_method, Jiro.payment_methods.keys[0], class: "payment_method", checked: true) %>未設定</label>
+        <label><%= f.radio_button(:payment_method, Jiro.payment_methods.keys[1], class: "payment_method") %>現金のみ</label>
+        <label><%= f.radio_button(:payment_method, Jiro.payment_methods.keys[2], class: "payment_method") %>現金以外可</label>
       </td>
     </tr>
     <tr>
       <th><%= f.label :how_to_order, "注文方法" %></th>
       <td>
-        <label><%= f.radio_button(:how_to_order, 0, class: "how_to_order", checked: true) %>未設定</label>
-        <label><%= f.radio_button(:how_to_order, 1, class: "how_to_order") %>食券制</label>
-        <label><%= f.radio_button(:how_to_order, 2, class: "how_to_order") %>注文制</label>
+        <label><%= f.radio_button(:how_to_order, Jiro.how_to_orders.keys[0], class: "how_to_order", checked: true) %>未設定</label>
+        <label><%= f.radio_button(:how_to_order, Jiro.how_to_orders.keys[1], class: "how_to_order") %>食券制</label>
+        <label><%= f.radio_button(:how_to_order, Jiro.how_to_orders.keys[2], class: "how_to_order") %>注文制</label>
       </td>
     </tr>
     <tr>
       <th><%= f.label :call_timing, "トッピングコール" %></th>
       <td>
-        <label><%= f.radio_button(:call_timing, 0, class: "call_timing", checked: true) %>未設定</label>
-        <label><%= f.radio_button(:call_timing, 1, class: "call_timing") %>食券提出時</label>
-        <label><%= f.radio_button(:call_timing, 2, class: "call_timing") %>麺茹で上がり時</label>
+        <label><%= f.radio_button(:call_timing, Jiro.call_timings.keys[0], class: "call_timing", checked: true) %>未設定</label>
+        <label><%= f.radio_button(:call_timing, Jiro.call_timings.keys[1], class: "call_timing") %>食券提出時</label>
+        <label><%= f.radio_button(:call_timing, Jiro.call_timings.keys[2], class: "call_timing") %>麺茹で上がり時</label>
       </td>
     </tr>
     </table>
