@@ -21,7 +21,7 @@
           <% if jirolian_signed_in? %>
             <div class="dropdown">
               <div class="nav-link" id="dropdownMenuButton button_group" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= render 'jirolian_image_icon', jirolian: current_jirolian %>
+                <%= render './jirolians/jirolian_image_icon', jirolian: current_jirolian %>
               </div>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <%= link_to 'マイページ', '/jirolians/mypage', class: 'nav-link dropdown-item' %>
