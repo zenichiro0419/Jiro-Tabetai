@@ -337,7 +337,8 @@ Post.create!(
       noodle: 1,
       boiled_vegetable: 1,
       roasted_pork: 1,
-      called: 'ヤサイマシマシアブラマシマシ'
+      called: 'ヤサイマシマシアブラマシマシ',
+      wating_time: 20
     },
     {
       jirolian_id: 1,
@@ -347,7 +348,8 @@ Post.create!(
       noodle: 1,
       boiled_vegetable: 1,
       roasted_pork: 1,
-      called: '別皿ニンニクガリマヨ'
+      called: '別皿ニンニクガリマヨ',
+      wating_time: 100
     },
     {
       jirolian_id: 1,
@@ -377,7 +379,8 @@ Post.create!(
       noodle: 2,
       boiled_vegetable: 2,
       roasted_pork: 2,
-      called: '別皿ニンニク'
+      called: '別皿ニンニク',
+      wating_time: 25
     },
     {
       jirolian_id: 2,
@@ -397,7 +400,8 @@ Post.create!(
       noodle: 3,
       boiled_vegetable: 3,
       roasted_pork: 3,
-      called: 'ヤサイマシアブラマシマシ'
+      called: 'ヤサイマシアブラマシマシ',
+      wating_time: 100
     },
     {
       jirolian_id: 3,
@@ -407,7 +411,8 @@ Post.create!(
       noodle: 3,
       boiled_vegetable: 3,
       roasted_pork: 3,
-      called: '別皿ガリマヨ'
+      called: '別皿ガリマヨ',
+      wating_time: 50
     },
     {
       jirolian_id: 3,
@@ -417,7 +422,8 @@ Post.create!(
       noodle: 3,
       boiled_vegetable: 3,
       roasted_pork: 3,
-      called: 'ヤサイ'
+      called: 'ヤサイ',
+      wating_time: 30
     }
   ]
 )
