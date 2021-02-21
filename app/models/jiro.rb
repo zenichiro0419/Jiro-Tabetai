@@ -26,6 +26,7 @@ class Jiro < ApplicationRecord
   has_many :business_hours
   has_many :wanna_eat_statuses, dependent: :destroy
   has_many :have_eaten_statuses, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

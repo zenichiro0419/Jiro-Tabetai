@@ -17,7 +17,8 @@
 #
 class Post < ApplicationRecord
   has_many :favorite_posts, dependent: :destroy
-  belongs_to :jirolian, optional: true
+  belongs_to :jirolian
+  belongs_to :jiro
 
   validates :content, presence: true
   validates :jiro_id, presence: true
