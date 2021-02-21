@@ -1,21 +1,5 @@
-<% @posts.each do |post| %>
-  <% jiro = Jiro.find(post.jiro_id)%>
-  <div>
-    <%= render 'jirolians/jirolian_image_icon', jirolian: post.jirolian %>
-    <a href="/jirolians/<%= post.jirolian.username %>"><%= post.jirolian.username %></a><br>
-    <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
-    <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
-    <p><%= post.content %></p>
-    <p><%= "並び時間：#{post.wating_time}分" if post.wating_time.present? %></p>
-    <p><%= "トッピング：#{post.called}" if post.called.present? %></p>
-    <% if jirolian_signed_in? %>
-      <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
-    <% else %>
-      <%= link_to new_jirolian_session_path do %>
-        <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
-        <%= post.favorite_posts.count %></span>
-      <% end %>
-    <% end%>
-  </div>
-  <hr style="border-bottom: 3px double #8899a6;">
-<% end %>
+<% if @posts.present? %>
+  <%= render 'display_posts', posts: @posts, current_jirolian: current_jirolian %>
+<% else %>
+  <div>投稿は有りません。</div>  
+<% end %>  
