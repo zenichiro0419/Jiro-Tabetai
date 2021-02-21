@@ -38,10 +38,10 @@ class Jiro < ApplicationRecord
   # validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX}
 
   def checked_wanna_eat_by?(jirolian)
-    wanna_eat_statuses.where(jirolian_id: jirolian.id).exists?
+    wanna_eat_statuses.where(jirolian_id: jirolian.id).exists? if jirolian.present?
   end
 
   def checked_have_eaten_by?(jirolian)
-    have_eaten_statuses.where(jirolian_id: jirolian.id).exists?
+    have_eaten_statuses.where(jirolian_id: jirolian.id).exists? if jirolian.present?
   end
 end
