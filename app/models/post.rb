@@ -9,6 +9,7 @@
 #  noodle           :integer
 #  roasted_pork     :integer
 #  soup             :integer
+#  wating_time      :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  jiro_id          :integer
@@ -16,7 +17,8 @@
 #
 class Post < ApplicationRecord
   has_many :favorite_posts, dependent: :destroy
-  belongs_to :jirolian, optional: true
+  belongs_to :jirolian
+  belongs_to :jiro
 
   validates :content, presence: true
   validates :jiro_id, presence: true

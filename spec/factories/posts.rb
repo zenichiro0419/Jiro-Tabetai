@@ -9,6 +9,7 @@
 #  noodle           :integer
 #  roasted_pork     :integer
 #  soup             :integer
+#  wating_time      :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  jiro_id          :integer
