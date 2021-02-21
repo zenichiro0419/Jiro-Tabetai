@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 <%= button_to '食レポ', new_jiro_posts_path(@jiro), method: :get %>
+<%= button_to '情報修正', edit_jiro_path(@jiro), method: :get %>
 
 <%= render 'jiros/wanna_eat_button', jiro: @jiro %>
 <%= render 'jiros/have_eaten_button', jiro: @jiro %>
