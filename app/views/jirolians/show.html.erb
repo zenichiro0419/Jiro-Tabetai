@@ -48,7 +48,8 @@
           <%= post.created_at.strftime('%Y/%m/%d') %>訪問<br>
           <a href="/jiros/<%= jiro.id %>"><%= jiro.name %></a><br>
           <p><%= post.content %></p>
-          <p>トッピング：<%= post.called %></p>
+          <p><%= "並び時間：#{post.wating_time}分" if post.wating_time.present? %></p>
+          <p><%= "トッピング：#{post.called}" if post.called.present? %></p>
           <% if jirolian_signed_in? %>
             <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
           <% else %>
