@@ -5,8 +5,12 @@
     <td><%= f.text_area(:content, class: "content", size: "40*50") %></td>
   </tr>
   <tr>
+    <th><%= f.label :wating_time, "並んだ時間" %></th>
+    <td>約<%= f.number_field(:wating_time, class: "wating_time") %>分</td>
+  </tr>
+  <tr>
     <th><%= f.label :called, "トッピング" %></th>
-    <td><%= f.text_field(:called, class: "called", placeholder: '例：ヤサイマシアブラカラメ') %></td>
+    <td><%= f.text_field(:called, class: "called", size: "30", placeholder: '例：ヤサイマシアブラカラメ') %></td>
   </tr>
   <tr>
     <th><%= f.label :noodle, "メン" %></th>
