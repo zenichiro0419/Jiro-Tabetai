@@ -7,7 +7,6 @@ Chartkick.options = {
            '#f7fbfc'],
   message: {empty: 'データがありません'},
   thousands: ',',
-  suffix: '円',
   legend: false, # 凡例非表示
   library: { # ここからHighchartsのオプション
     title: { # タイトル表示(ここでは、グラフの真ん中に配置して,viewでデータを渡しています。*後述)
