@@ -66,6 +66,8 @@ group :development do
   gem 'rubocop-rspec'
   # For add schema information
   gem 'annotate'
+  # For render chart and graph
+  gem 'chartkick'
 end
 
 group :test do
