@@ -7,6 +7,14 @@
 <%= render 'jiros/have_eaten_button', jiro: @jiro %>
 
 <h1>店舗情報</h1>
+
+<ul class="pie_chart">
+  <li><%= pie_chart Post.group(:soup).count, library: {title: {text: 'スープ'}} %></li>
+  <li><%= pie_chart Post.group(:noodle).count, library: {title: {text: 'メン'}} %></li>
+  <li><%= pie_chart Post.group(:boiled_vegetable).count, library: {title: {text: 'ヤサイ'}} %></li>
+  <li><%= pie_chart Post.group(:roasted_pork).count, library: {title: {text: 'ブタ'}} %></li>
+</ul>
+
 <%= render 'jiro_image_icon', jiro: @jiro %>
   <h2>基本情報</h2>
     <table class="table">
