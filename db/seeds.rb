@@ -362,6 +362,27 @@ Post.create!(
       called: 'カラアゲ半分'
     },
     {
+      jirolian_id: 1,
+      jiro_id: 1,
+      content: 'ぴよぴよぴよ',
+      soup: 2,
+      noodle: 3,
+      boiled_vegetable: 2,
+      roasted_pork: 3,
+      called: 'カラアゲ半分'
+    },
+    {
+      jirolian_id: 1,
+      jiro_id: 1,
+      content: 'ぴよぴよぴよ',
+      soup: 3,
+      noodle: 4,
+      boiled_vegetable: 2,
+      roasted_pork: 2,
+      called: 'カラアゲ半分'
+    },
+
+    {
       jirolian_id: 2,
       jiro_id: 1,
       content: 'ほげほげほげほげ',
@@ -398,7 +419,7 @@ Post.create!(
       content: 'ほげほげほげほげ',
       soup: 3,
       noodle: 3,
-      boiled_vegetable: 3,
+      boiled_vegetable: 1,
       roasted_pork: 3,
       called: 'ヤサイマシアブラマシマシ',
       wating_time: 100
@@ -409,7 +430,7 @@ Post.create!(
       content: 'フガフガ',
       soup: 3,
       noodle: 3,
-      boiled_vegetable: 3,
+      boiled_vegetable: 1,
       roasted_pork: 3,
       called: '別皿ガリマヨ',
       wating_time: 50
@@ -419,8 +440,8 @@ Post.create!(
       jiro_id: 3,
       content: 'ぴよぴよぴよ',
       soup: 3,
-      noodle: 3,
-      boiled_vegetable: 3,
+      noodle: 4,
+      boiled_vegetable: 2,
       roasted_pork: 3,
       called: 'ヤサイ',
       wating_time: 30
