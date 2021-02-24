@@ -7,6 +7,14 @@
 <%= render 'jiros/have_eaten_button', jiro: @jiro %>
 
 <h1>店舗情報</h1>
+
+<ul class="pie_chart">
+  <li><%= pie_chart taste_spec(:soup), library: {title: {text: 'スープ'}} %></li>
+  <li><%= pie_chart taste_spec(:noodle), library: {title: {text: 'メン'}} %></li>
+  <li><%= pie_chart taste_spec(:boiled_vegetable), library: {title: {text: 'ヤサイ'}} %></li>
+  <li><%= pie_chart taste_spec(:roasted_pork), library: {title: {text: 'ブタ'}} %></li>
+</ul>
+
 <%= render 'jiro_image_icon', jiro: @jiro %>
   <h2>基本情報</h2>
     <table class="table">
@@ -121,4 +129,3 @@
     <% else %>
       <div>この店舗に関する投稿は有りません。</div>  
     <% end %>
-
