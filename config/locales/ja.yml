@@ -19,6 +19,23 @@ ja:
         lunch: "前半の部"
         dinner: "後半の部"
         holiday: "定休日"
+    post:
+      soup:
+        emulsification: "乳化"
+        little_emulsification: "微乳化"
+        non_emulsification: "非乳化"
+      noodle:
+        soft: "デロ"
+        little_soft: "ヤヤデロ"
+        little_hard: "やや固"
+        hard: "固"
+      boiled_vegetable:
+        tender: "クタ"
+        tough: "シャキ"
+      roasted_pork:
+        crumbly: "パサ"
+        melted: "ホロ"
+        fatty: "ブリンブリン"
   activerecord:
     errors:
       messages:
