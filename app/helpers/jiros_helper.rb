@@ -57,4 +57,14 @@ module JirosHelper
   def from_open_to_end(start_at, end_at)
     start_at.present? && end_at.present? ? "#{start_at} 〜 #{end_at}" : '未設定'
   end
+
+  # @params [symbol] caregory
+  # @return [Hash]
+  def taste_spec(category)
+    taste_spec_distribution = Post.group(category).count.sort.to_h
+    taste_category = t('enums.post')[category].sort.to_h
+    taste_spec_distribution.values.map.with_index do |count, idx|
+      [taste_category.values[idx], count]
+    end.to_h
+  end
 end

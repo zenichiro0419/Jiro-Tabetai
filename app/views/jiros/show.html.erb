@@ -9,10 +9,10 @@
 <h1>店舗情報</h1>
 
 <ul class="pie_chart">
-  <li><%= pie_chart Post.group(:soup).count, library: {title: {text: 'スープ'}} %></li>
-  <li><%= pie_chart Post.group(:noodle).count, library: {title: {text: 'メン'}} %></li>
-  <li><%= pie_chart Post.group(:boiled_vegetable).count, library: {title: {text: 'ヤサイ'}} %></li>
-  <li><%= pie_chart Post.group(:roasted_pork).count, library: {title: {text: 'ブタ'}} %></li>
+  <li><%= pie_chart taste_spec(:soup), library: {title: {text: 'スープ'}} %></li>
+  <li><%= pie_chart taste_spec(:noodle), library: {title: {text: 'メン'}} %></li>
+  <li><%= pie_chart taste_spec(:boiled_vegetable), library: {title: {text: 'ヤサイ'}} %></li>
+  <li><%= pie_chart taste_spec(:roasted_pork), library: {title: {text: 'ブタ'}} %></li>
 </ul>
 
 <%= render 'jiro_image_icon', jiro: @jiro %>
@@ -129,4 +129,3 @@
     <% else %>
       <div>この店舗に関する投稿は有りません。</div>  
     <% end %>
-
