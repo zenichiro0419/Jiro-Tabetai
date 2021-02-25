@@ -8,12 +8,14 @@
     <p><%= "並び時間：#{post.wating_time}分" if post.wating_time.present? %></p>
     <p><%= "トッピング：#{post.called}" if post.called.present? %></p>
     <% if jirolian_signed_in? %>
-      <%= render 'favorite_posts/favorite_button', { jirolian: current_jirolian, post: post } %>
+      <div id="favorite_post_buttons_<%= post.id %>">
+        <%= render 'favorite_posts/favorite_button', { post: post } %>
+      </div>
     <% else %>
       <%= link_to new_jirolian_session_path do %>
-        <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
-        <%= post.favorite_posts.count %></span>
+        <span class="far fa-heart" aria-hidden="true" style="color: #8899a6;"></span>
       <% end %>
+      <%= post.favorite_posts.count %>
     <% end%>
   </div>
   <hr style="border-bottom: 3px double #8899a6;">
