@@ -1,12 +1,12 @@
 class FacilitiesController < ApplicationController
+  before_action :set_jiro
+
   def edit
     @facility = Facility.find_by(jiro_id: params[:jiro_id])
   end
 
   def update
-    @jiro = Jiro.find_by_id(params[:jiro_id])
     @facility = @jiro.facility
-    # TODO: Header作成時にflashを埋め込む。
     if @facility.update(facility_params)
       flash.notice = '更新が完了しました。'
       redirect_to jiro_path(@jiro)
@@ -17,6 +17,10 @@ class FacilitiesController < ApplicationController
   end
 
   private
+
+  def set_jiro
+    @jiro = Jiro.find(params[:jiro_id])
+  end
 
   def facility_params
     params.permit(:jiro_id, :is_renge, :is_tissue, :is_apron, :is_water_server, :is_trash_box,
