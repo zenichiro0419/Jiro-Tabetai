@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
 <%= button_to '食レポ', new_jiro_posts_path(@jiro), method: :get %>
 <%= button_to '情報修正', edit_jiro_path(@jiro), method: :get %>
 
@@ -125,7 +123,7 @@
       </table>
 
     <% if @posts.present? %>
-      <%= render 'posts/display_posts', posts: @posts, current_jirolian: current_jirolian %>
+      <%= render 'posts/display_posts', posts: @posts %>
     <% else %>
       <div>この店舗に関する投稿は有りません。</div>  
     <% end %>
