@@ -1,11 +1,11 @@
-<% if post.favorited_by?(jirolian) %>
-  <%= link_to post_favorite_posts_path(post), method: :delete do %>
-    <span class="fa fa-heart like-btn-unlike"　aria-hidden="true" style="color: #ff2581;">
-    <%= post.favorite_posts.count %></span>
+<% if post.favorited_by?(current_jirolian) %>
+  <%= link_to post_favorite_posts_path(post), method: :delete, remote: true do %>
+    <span class="fas fa-heart" style="color: #ff2581;"></span>
   <% end %>
+  <%= post.favorite_posts.count %>
 <% else %>
-  <%= link_to post_favorite_posts_path(post), method: :post do %>
-    <span class="fa fa-heart like-btn" aria-hidden="true" style="color: #8899a6;">
-    <%= post.favorite_posts.count %></span>
+  <%= link_to post_favorite_posts_path(post), method: :post, remote: true do %>
+    <span class="far fa-heart" style="color: #8899a6;"></span>
   <% end %>
+  <%= post.favorite_posts.count %>
 <% end %>
