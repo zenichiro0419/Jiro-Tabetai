@@ -1,4 +1,4 @@
-<H3>メニュー</H3>
+<%= render 'jiros/edit_jiro_navi_bar', jiro_id: @jiro.id %>
 
 <H4>メインメニュー</H4>
 <%= form_with(model: @main_menu_items, url: update_main_menu_jiro_menu_items_path, method: :patch, local: true) do |form| %>

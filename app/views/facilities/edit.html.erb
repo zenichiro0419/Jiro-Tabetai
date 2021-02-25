@@ -1,102 +1,102 @@
-  <H3>基本設備</H3>
+  <%= render 'jiros/edit_jiro_navi_bar', jiro_id: @jiro.id %>
+
+  <%= form_with(model: @facility, url: jiro_facilities_path, method: :put, local: true) do |f| %>
   <table class="form-table">
-    <%= form_with(model: @facility, url: jiro_facilities_path, method: :put, local: true) do |f| %>
-      <tr>
-        <th><%= f.label :is_renge, "レンゲ" %></th>
-        <td>
-          <label><%= f.radio_button(:is_renge, true, class: "is_renge") %>あり</label>
-          <label><%= f.radio_button(:is_renge, false, class: "is_renge") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_tissue, "ティッシュ" %></th>
-        <td>
-          <label><%= f.radio_button(:is_tissue, true, class: "is_tissue") %>あり</label>
-          <label><%= f.radio_button(:is_tissue, false, class: "is_tissue") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_apron, "エプロン" %></th>
-        <td>
-          <label><%= f.radio_button(:is_apron, true, class: "is_apron") %>あり</label>
-          <label><%= f.radio_button(:is_apron, false, class: "is_apron") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_water_server, "ウォーターサーバー" %></th>
-        <td>
-          <label><%= f.radio_button(:is_water_server, true, class: "is_water_server") %>あり</label>
-          <label><%= f.radio_button(:is_water_server, false, class: "is_water_server") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_trash_box, "ゴミ箱" %></th>
-        <td>
-          <label><%= f.radio_button(:is_trash_box, true, class: "is_trash_box") %>あり</label>
-          <label><%= f.radio_button(:is_trash_box, false, class: "is_trash_box") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_vending_machine, "自動販売機" %></th>
-        <td>
-          <label><%= f.radio_button(:is_vending_machine, true, class: "is_vending_machine") %>あり</label>
-          <label><%= f.radio_button(:is_vending_machine, false, class: "is_vending_machine") %>なし</label>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :is_hair_tie, "ヘアゴム" %></th>
-        <td>
-          <label><%= f.radio_button(:is_hair_tie, true, class: "is_hair_tie") %>あり</label>
-          <label><%= f.radio_button(:is_hair_tie, false, class: "is_hair_tie") %>なし</label>
-        </td>
-      </tr>
-        <th><%= f.label :in_store_pending, "店内待ち数" %></th>
-        <td>
-          <%= f.number_field(:in_store_pending, class: "in_store_pending", size: 10, min: 0) %>人
-        </td>
-      </tr>
-      
-      <H3>卓上調味料</H3>
-      <tr>
-        <th><%= f.label :seasoning1, "調味料①" %></th>
-        <td>
-          <% Facility.seasoning1s.each_key do |seasoning| %>
-            <label><%= f.radio_button :seasoning1, seasoning %><%= seasoning %></label>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :seasoning2, "調味料②" %></th>
-        <td>
-          <% Facility.seasoning2s.each_key do |seasoning| %>
-            <label><%= f.radio_button :seasoning2, seasoning %><%= seasoning %></label>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :seasoning3, "調味料③" %></th>
-        <td>
-          <% Facility.seasoning3s.each_key do |seasoning| %>
-            <label><%= f.radio_button :seasoning3, seasoning %><%= seasoning %></label>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :seasoning4, "調味料④" %></th>
-        <td>
-          <% Facility.seasoning4s.each_key do |seasoning| %>
-            <label><%= f.radio_button :seasoning4, seasoning %><%= seasoning %></label>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th><%= f.label :seasoning5, "調味料⑤" %></th>
-        <td>
-          <% Facility.seasoning5s.each_key do |seasoning| %>
-            <label><%= f.radio_button :seasoning5, seasoning %><%= seasoning %></label>
-          <% end %>
-        </td>
-      </tr>
-      <%= f.submit "更新" %>
-    <% end %>
-  </table>
+    <tr>
+      <th><%= f.label :is_renge, "レンゲ" %></th>
+      <td>
+        <label><%= f.radio_button(:is_renge, true, class: "is_renge") %>あり</label>
+        <label><%= f.radio_button(:is_renge, false, class: "is_renge") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_tissue, "ティッシュ" %></th>
+      <td>
+        <label><%= f.radio_button(:is_tissue, true, class: "is_tissue") %>あり</label>
+        <label><%= f.radio_button(:is_tissue, false, class: "is_tissue") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_apron, "エプロン" %></th>
+      <td>
+        <label><%= f.radio_button(:is_apron, true, class: "is_apron") %>あり</label>
+        <label><%= f.radio_button(:is_apron, false, class: "is_apron") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_water_server, "ウォーターサーバー" %></th>
+      <td>
+        <label><%= f.radio_button(:is_water_server, true, class: "is_water_server") %>あり</label>
+        <label><%= f.radio_button(:is_water_server, false, class: "is_water_server") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_trash_box, "ゴミ箱" %></th>
+      <td>
+        <label><%= f.radio_button(:is_trash_box, true, class: "is_trash_box") %>あり</label>
+        <label><%= f.radio_button(:is_trash_box, false, class: "is_trash_box") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_vending_machine, "自動販売機" %></th>
+      <td>
+        <label><%= f.radio_button(:is_vending_machine, true, class: "is_vending_machine") %>あり</label>
+        <label><%= f.radio_button(:is_vending_machine, false, class: "is_vending_machine") %>なし</label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :is_hair_tie, "ヘアゴム" %></th>
+      <td>
+        <label><%= f.radio_button(:is_hair_tie, true, class: "is_hair_tie") %>あり</label>
+        <label><%= f.radio_button(:is_hair_tie, false, class: "is_hair_tie") %>なし</label>
+      </td>
+    </tr>
+      <th><%= f.label :in_store_pending, "店内待ち数" %></th>
+      <td>
+        <%= f.number_field(:in_store_pending, class: "in_store_pending", size: 10, min: 0) %>人
+      </td>
+    </tr>
+    
+    <tr>
+      <th><%= f.label :seasoning1, "調味料①" %></th>
+      <td>
+        <% Facility.seasoning1s.each_key do |seasoning| %>
+          <label><%= f.radio_button :seasoning1, seasoning %><%= seasoning %></label>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :seasoning2, "調味料②" %></th>
+      <td>
+        <% Facility.seasoning2s.each_key do |seasoning| %>
+          <label><%= f.radio_button :seasoning2, seasoning %><%= seasoning %></label>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :seasoning3, "調味料③" %></th>
+      <td>
+        <% Facility.seasoning3s.each_key do |seasoning| %>
+          <label><%= f.radio_button :seasoning3, seasoning %><%= seasoning %></label>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :seasoning4, "調味料④" %></th>
+      <td>
+        <% Facility.seasoning4s.each_key do |seasoning| %>
+          <label><%= f.radio_button :seasoning4, seasoning %><%= seasoning %></label>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :seasoning5, "調味料⑤" %></th>
+      <td>
+        <% Facility.seasoning5s.each_key do |seasoning| %>
+          <label><%= f.radio_button :seasoning5, seasoning %><%= seasoning %></label>
+        <% end %>
+      </td>
+    </tr>
+    </table>
+    <%= f.submit "更新" %>
+  <% end %>

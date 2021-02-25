@@ -1,0 +1,16 @@
+<div class="edit_header">
+  <div class="jiro_name"><%= @jiro.name %></div>
+  <div class="jiro_btn">
+    <%= link_to jiro_path(@jiro) do %>
+      <span class="btn btn-primary">
+      <%= "店舗トップ" %></span>
+    <% end %>
+  <div>
+</div>
+<br>
+<ul id="nav">
+  <li><a href="/jiros/<%=jiro_id%>/edit">基礎情報</a></li>
+  <li><a href="/jiros/<%=jiro_id%>/business_hours/edit">営業時間</a></li>
+  <li><a href="/jiros/<%=jiro_id%>/facilities/edit">店内設備</a></li>
+  <li><a href="/jiros/<%=jiro_id%>/menu_items/edit">メニュー</a></li>
+</ul>

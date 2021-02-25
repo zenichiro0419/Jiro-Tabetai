@@ -1,3 +1,5 @@
+<%= render 'edit_jiro_navi_bar', jiro_id: @jiro.id %>
+
 <H3>基本情報</H3>
     <%= form_with(model: @jiro, url: jiro_path, local: true) do |f| %>
       <table class="form-table">

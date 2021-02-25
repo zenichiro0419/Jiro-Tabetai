@@ -60,7 +60,7 @@ class JirosController < ApplicationController
   private
 
   def set_jiro
-    @jiro = Jiro.find_by_id(params[:id])
+    @jiro = Jiro.find(params[:id])
   end
 
   # @pramas [Facility] facility

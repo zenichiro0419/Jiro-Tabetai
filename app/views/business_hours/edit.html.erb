@@ -1,3 +1,5 @@
+<%= render 'jiros/edit_jiro_navi_bar', jiro_id: @jiro.id %>
+
 <%= form_with(model: @business_hours, url: jiro_business_hours_path, method: :patch, local: true) do |form| %>
   <table>
   <% @business_hours.each_with_index do |business_hour, idx| %>

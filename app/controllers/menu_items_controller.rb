@@ -1,4 +1,6 @@
 class MenuItemsController < ApplicationController
+  before_action :set_jiro
+
   def edit
     menu_items = MenuItem.where(jiro_id: params[:jiro_id])
     @main_menu_items = menu_items.main_menu
@@ -6,7 +8,6 @@ class MenuItemsController < ApplicationController
   end
 
   def update_main_menu
-    @jiro = Jiro.find_by_id(params[:jiro_id])
     menu_items = MenuItem.where(jiro_id: params[:jiro_id])
 
     @main_menu_items = menu_items.main_menu
@@ -38,6 +39,10 @@ class MenuItemsController < ApplicationController
   end
 
   private
+
+  def set_jiro
+    @jiro = Jiro.find(params[:jiro_id])
+  end
 
   def push_update_main_menu_items(main_menu_items)
     update_main_menu_items = []

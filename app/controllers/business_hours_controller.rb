@@ -1,10 +1,11 @@
 class BusinessHoursController < ApplicationController
+  before_action :set_jiro
+
   def edit
     @business_hours = BusinessHour.where(jiro_id: params[:jiro_id])
   end
 
   def update
-    @jiro = Jiro.find_by_id(params[:jiro_id])
     @business_hours = BusinessHour.where(jiro_id: params[:jiro_id])
 
     update_business_hours = push_update_business_hours(@business_hours)
@@ -18,6 +19,10 @@ class BusinessHoursController < ApplicationController
   end
 
   private
+
+  def set_jiro
+    @jiro = Jiro.find(params[:jiro_id])
+  end
 
   def push_update_business_hours(business_hours)
     update_business_hours = []
