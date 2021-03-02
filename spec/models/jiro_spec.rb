@@ -12,6 +12,8 @@
 #  information            :text(65535)
 #  is_closed              :boolean
 #  is_parking_area        :boolean
+#  latitude               :float(24)
+#  longitude              :float(24)
 #  name                   :string(255)      not null
 #  payment_method         :integer
 #  phone_number           :string(255)
