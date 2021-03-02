@@ -68,6 +68,8 @@ group :development do
   gem 'annotate'
   # For render chart and graph
   gem 'chartkick'
+  # For setup google map
+  gem "geocoder"
 end
 
 group :test do
