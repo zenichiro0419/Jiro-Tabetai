@@ -70,6 +70,7 @@ group :development do
   gem 'chartkick'
   # For setup google map
   gem "geocoder"
+  gem "dotenv-rails"
 end
 
 group :test do
