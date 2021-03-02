@@ -1,0 +1,16 @@
+let map
+let geocoder
+const display = document.getElementById('display')
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: <%= @jiro.latitude %>, lng: <%= @jiro.longitude %>},
+    zoom: 12,
+  });
+  marker = new google.maps.Marker({
+    position:  {lat: <%= @jiro.latitude %>, lng: <%= @jiro.longitude %> },
+    map: map
+  });
+}

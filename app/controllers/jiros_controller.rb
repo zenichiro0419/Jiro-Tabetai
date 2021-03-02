@@ -1,5 +1,5 @@
 class JirosController < ApplicationController
-  before_action :set_jiro, expect: [:new, :create]
+  before_action :set_jiro, except: [:new, :create]
   before_action :authenticate_jirolian!, except: [:show]
 
   def show
